@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :set_default_img
 
   attr_reader :password
 
