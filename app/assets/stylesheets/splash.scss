@@ -1,9 +1,9 @@
 .hero-img {
-  background-image: url("http://res.cloudinary.com/shuttr/image/upload/v1505895783/mttam_ix7w6t.jpg");
-  height: 50%;
+  background-image: url("https://res.cloudinary.com/shuttr/image/upload/v1505895783/mttam_ix7w6t.jpg");
+  background-size: cover;
+  height: 700px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
 }
 
@@ -14,4 +14,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.hero-text > button {
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
 }

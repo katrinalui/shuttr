@@ -14,4 +14,11 @@
  *= require_self
  */
 
+$open-sans: 'Open Sans', sans-serif;
+$quicksand: 'Quicksand', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Quicksand');
+@import "reset";
 @import "splash";
+@import "nav_bar";
+@import "session_form";

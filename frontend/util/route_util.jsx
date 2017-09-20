@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const Auth = ({ component: Component, path, loggedIn }) => (
   <Route path={path} render={(props) => (
@@ -26,6 +26,6 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.session.currentUser)
 });
 
-export const AuthRoute = connect(mapStateToProps)(Auth);
+export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
-export const ProtectedRoute = connect(mapStateToProps)(Protected);
+export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));

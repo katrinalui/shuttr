@@ -15,7 +15,7 @@ class Splash extends React.Component {
     return (
       <div className="hero-img">
         <div className="hero-text">
-          <h1>Find your inspiration.</h1>
+          <h1>Share your photos with the world.</h1>
           <button onClick={this.loginDemo}>Demo</button>
         </div>
       </div>

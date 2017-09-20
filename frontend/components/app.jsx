@@ -13,8 +13,8 @@ const App = () => (
     </nav>
 
     <main className="body">
-        <AuthRoute path="/" component={SplashContainer} />
-        <ProtectedRoute path="/home" />
+      <AuthRoute path="/" component={SplashContainer} />
+      <ProtectedRoute path="/home" />
     </main>
   </div>
 );
