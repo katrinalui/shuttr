@@ -15,11 +15,11 @@ class SessionForm extends React.Component {
     this.closeForm = this.closeForm.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.loggedIn) {
-      this.props.history.push('/home');
-    }
-  }
+  // componentWillReceiveProps(newProps) {
+  //   if (newProps.loggedIn) {
+  //     this.props.history.push('/home');
+  //   }
+  // }
 
   update(field) {
     return e => this.setState({
@@ -76,6 +76,16 @@ class SessionForm extends React.Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           contentLabel="Modal"
+          className={{
+            base: 'session-form-modal',
+            afterOpen: 'session-form-modal-after-open',
+            beforeClose: 'session-form-modal-before-close'
+          }}
+          overlayClassName={{
+            base: 'session-form-overlay',
+            afterOpen: 'session-form-overlay-after-open',
+            beforeClose: 'session-form-overlay-before-close'
+          }}
           >
           <button onClick={() => this.closeForm()}>
             <i className="fa fa-times" aria-hidden="true"></i>

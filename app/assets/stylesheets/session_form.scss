@@ -1,5 +1,28 @@
+.session-form-box {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .session-form > input[type="submit"] {
   background-color: gray;
   color: white;
   border-radius: 5px;
+}
+
+// .session-form-overlay {
+//   position: 'fixed';
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: white;
+// }
+
+.session-form-modal {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  background: white;
+  padding: 20px;
+  width: 300px;
+  height: 400px;
 }
