@@ -1,0 +1,17 @@
+.hero-img {
+  background-image: url("http://res.cloudinary.com/shuttr/image/upload/v1505895783/mttam_ix7w6t.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
