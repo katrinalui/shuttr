@@ -1,21 +1,49 @@
 .session-form-box {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6e706f;
+}
+
+.session-form-box h2 {
+  padding-top: 60px;
+  font-size: 30px;
+}
+
+.session-form-box a {
+  font-size: 12px;
+  padding-top: 35px;
+}
+
+.session-form {
+  padding: 20px;
+  text-align: center;
+}
+
+.session-form > input {
+  border: 1px solid #bababa;
+  margin-top: 20px;
+  padding: 10px 50px 10px 50px;
+  font-size: 12px;
 }
 
 .session-form > input[type="submit"] {
   background-color: gray;
   color: white;
   border-radius: 5px;
+  padding: 6px 16px 6px 16px;
+  font-size: 12px;
+  margin-top: 35px;
 }
 
-// .session-form-overlay {
-//   position: 'fixed';
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: white;
-// }
+.session-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 .session-form-modal {
   position: absolute;

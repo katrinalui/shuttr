@@ -13,6 +13,8 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openForm = this.openForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    this.toggleFormLink = this.toggleFormLink.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   // componentWillReceiveProps(newProps) {
@@ -65,6 +67,26 @@ class SessionForm extends React.Component {
     this.props.clearErrors();
   }
 
+  toggleFormLink() {
+    if (this.state.formType === "Sign Up") {
+      return (
+        <a onClick={this.toggleForm}>Already have an account? Log in</a>
+      );
+    } else {
+      return (
+        <a onClick={this.toggleForm}>Don't have an account? Sign up</a>
+      );
+    }
+  }
+
+  toggleForm() {
+    if (this.state.formType === "Sign Up") {
+      this.setState({ formType: "Log In" });
+    } else {
+      this.setState({ formType: "Sign Up" });
+    }
+  }
+
   render() {
     return (
       <div className="session-form-container">
@@ -83,8 +105,7 @@ class SessionForm extends React.Component {
           }}
           overlayClassName={{
             base: 'session-form-overlay',
-            afterOpen: 'session-form-overlay-after-open',
-            beforeClose: 'session-form-overlay-before-close'
+
           }}
           >
           <button onClick={() => this.closeForm()}>
@@ -92,7 +113,7 @@ class SessionForm extends React.Component {
           </button>
 
           <div className="session-form-box">
-            {this.state.formType}
+            <h2>{this.state.formType}</h2>
             {this.renderErrors()}
             <form className="session-form" onSubmit={this.handleSubmit}>
               <input type="text"
@@ -111,6 +132,8 @@ class SessionForm extends React.Component {
                 value={this.state.formType}
               />
             </form>
+
+            {this.toggleFormLink()}
           </div>
         </Modal>
       </div>

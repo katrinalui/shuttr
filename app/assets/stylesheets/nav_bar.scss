@@ -1,9 +1,27 @@
+.navbar {
+  background-color: #bababa;
+}
+
 .user-buttons {
   display: flex;
   justify-content: flex-end;
+  height: 50px;
+  align-items: center;
+}
+
+.user-buttons button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #bababa;
+  height: 30px;
+  border-radius: 5px;
+  padding: 3px 10px 3px 10px;
+  background-color: white;
+  margin-right: 10px;
 }
 
 .user-buttons > img {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
