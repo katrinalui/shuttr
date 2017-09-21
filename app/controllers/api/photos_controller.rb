@@ -1,9 +1,9 @@
 class Api::PhotosController < ApplicationController
   def index
     @photos = if params[:user_id]
-                Photo.where(owner_id: params[:user_id])
+                Photo.where(owner_id: params[:user_id]).includes(:owner)
               else
-                Photo.all
+                Photo.all.includes(:owner)
               end
 
     render :index
@@ -29,7 +29,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def update
-    @photo = Photo.find_by(id: params[:id])
+    @photo = current_user.photos.find_by(id: params[:id])
 
     if @photo && @photo.update_attributes(photo_params)
       render :show
@@ -39,9 +39,9 @@ class Api::PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find_by(id: params[:id])
+    @photo = current_user.photos.find_by(id: params[:id])
     @photo.destroy
-    render json: { message: "Photo deleted" }
+    render :show
   end
 
   private
