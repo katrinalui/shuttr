@@ -18,7 +18,6 @@
 @media only screen and (max-width : 450px){
   .hero-img {
     background-attachment: scroll;
-    height: 628px;
   }
 }
 
@@ -39,6 +38,7 @@
 
 .hero-text > button {
   background-color: white;
+  opacity: .7;
   color: gray;
   font-size: 18px;
   border-radius: 5px;
@@ -56,13 +56,14 @@
 
 .signup-login button {
   background-color: white;
+  opacity: .6;
   height: 30px;
-  color: grey;
+  color: #3a3b3a;
   letter-spacing: 1px;
   margin-right: 10px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
-  padding: 2px 12px 2px 12px;
+  padding: 1px 12px 1px 12px;
   font-family: 'Roboto', sans-serif;
 }

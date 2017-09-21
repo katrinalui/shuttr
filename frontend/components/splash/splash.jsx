@@ -18,7 +18,7 @@ class Splash extends React.Component {
       <div className="hero-img">
         <AuthRoute path="/" component={SessionFormContainer} />
         <div className="hero-text">
-          <h1>Share your photos with the world.</h1>
+          <h1>Share the world with your photos.</h1>
           <button onClick={this.loginDemo}>Demo</button>
         </div>
       </div>
