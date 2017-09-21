@@ -1,2 +1,52 @@
 class Api::PhotosController < ApplicationController
+  def index
+    @photos = if params[:user_id]
+                Photo.where(owner_id: params[:user_id])
+              else
+                Photo.all
+              end
+
+    render :index
+  end
+
+  def show
+    @photo = Photo.find_by(id: params[:id])
+    if @photo
+      render :show
+    else
+      render json: @photo.errors.full_messages, status: 404
+    end
+  end
+
+  def create
+    @photo = current_user.photos.new(photo_params)
+
+    if @photo.save
+      render :show
+    else
+      render json: @photo.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @photo = Photo.find_by(id: params[:id])
+
+    if @photo && @photo.update_attributes(photo_params)
+      render :show
+    else
+      render json: @photo.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @photo = Photo.find_by(id: params[:id])
+    @photo.destroy
+    render json: { message: "Photo deleted" }
+  end
+
+  private
+
+  def photo_params
+    params.require(:photo).permit(:img_url, :title, :description)
+  end
 end

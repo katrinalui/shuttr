@@ -17,12 +17,6 @@ class SessionForm extends React.Component {
     this.toggleForm = this.toggleForm.bind(this);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.loggedIn) {
-  //     this.props.history.push('/home');
-  //   }
-  // }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -80,6 +74,8 @@ class SessionForm extends React.Component {
   }
 
   toggleForm() {
+    this.props.clearErrors();
+
     if (this.state.formType === "Sign Up") {
       this.setState({ formType: "Log In" });
     } else {
@@ -98,14 +94,12 @@ class SessionForm extends React.Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           contentLabel="Modal"
+          onRequestClose={this.closeForm}
           className={{
-            base: 'session-form-modal',
-            afterOpen: 'session-form-modal-after-open',
-            beforeClose: 'session-form-modal-before-close'
+            base: 'session-form-modal'
           }}
           overlayClassName={{
-            base: 'session-form-overlay',
-
+            base: 'session-form-overlay'
           }}
           >
           <button onClick={() => this.closeForm()}>

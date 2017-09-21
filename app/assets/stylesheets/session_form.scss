@@ -7,7 +7,7 @@
 }
 
 .session-form-box h2 {
-  padding-top: 60px;
+  padding-top: 50px;
   font-size: 30px;
 }
 
@@ -16,8 +16,13 @@
   padding-top: 35px;
 }
 
+.session-form-box ul {
+  font-size: 11px;
+  margin-top: 20px;
+}
+
 .session-form {
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -40,8 +45,8 @@
 .session-form-overlay {
   position: fixed;
   top: 0;
-  left: 50%;
-  right: auto;
+  left: 0;
+  right: 0;
   bottom: 0;
 }
 
