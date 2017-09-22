@@ -1,3 +1,9 @@
-.fa-spinner {
-  font-size: 80px;
+.loading-spinner {
+  font-size: 200px;
+  color: #424242;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }

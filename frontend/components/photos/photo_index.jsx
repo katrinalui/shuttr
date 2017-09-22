@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoIndexItem from './photo_index_item';
+import LoadingSpinner from '../loading_spinner';
 
 class PhotoIndex extends React.Component {
   componentWillMount() {
@@ -11,9 +12,7 @@ class PhotoIndex extends React.Component {
 
     if (loading) {
       return (
-        <div className="loading-spinner">
-          <i className="fa fa-spinner fa-spin" />
-        </div>
+        <LoadingSpinner />
       );
     } else {
       return (
