@@ -42,9 +42,10 @@ export const requestUserPhotos = userId => dispatch => {
   return getUserPhotos(userId).then(photos => dispatch(receivePhotos(photos)));
 };
 
-export const requestPhoto = photoId => dispatch => (
-  getPhoto(photoId).then(photo => dispatch(receivePhoto(photo)))
-);
+export const requestPhoto = photoId => dispatch => {
+  dispatch(startLoadingPhotos());
+  return getPhoto(photoId).then(photo => dispatch(receivePhoto(photo)));
+};
 
 export const createPhoto = photo => dispatch => (
   postPhoto(photo).then(photo => dispatch(receivePhoto(photo)))

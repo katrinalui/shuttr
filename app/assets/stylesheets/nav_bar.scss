@@ -7,12 +7,13 @@
   padding: 0px 20px;
 }
 
-.dashboard-nav h1 {
+.logo {
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
   font-size: 28px;
   color: white;
   float: left;
+  opacity: .9;
 }
 
 .user-buttons {
@@ -35,5 +36,4 @@
   width: 40px;
   height: 40px;
   margin-right: 10px;
-  border-radius: 100%;
 }

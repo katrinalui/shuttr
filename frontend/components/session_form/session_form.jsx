@@ -86,9 +86,13 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
-        <nav className="signup-login">
-          <button onClick={() => this.openForm("Log In")}>Log In</button>
-          <button onClick={() => this.openForm("Sign Up")}>Sign Up</button>
+        <nav className="splash-nav">
+          <h1 className="logo">Shuttr</h1>
+
+          <div className="signup-login">
+            <button onClick={() => this.openForm("Log In")}>Log In</button>
+            <button onClick={() => this.openForm("Sign Up")}>Sign Up</button>
+          </div>
         </nav>
 
         <Modal
