@@ -6,7 +6,7 @@ demo = User.create(
   username: "Demo",
   password: "password",
   bio: "Hello, World!",
-  img_url: "profile/default.jpg"
+  img_url: "profile/photographer.jpg"
 )
 
 butterpup = User.create(
@@ -23,54 +23,144 @@ lifeatappacademy = User.create(
   img_url: "profile/corgi.jpg"
 )
 
-# Photos
+chrisy = User.create(
+  username: "chrisy",
+  password: "howpeculiar",
+  bio: "How peculiar! Very interesting!",
+  img_url: "profile/chrisy.jpg"
+)
 
+# Photos
 photo1 = Photo.create(
+  img_url: "Shuttr/8642455812.jpg",
+  title: "Stranger in Oakland",
+  owner_id: demo.id
+)
+
+photo2 = Photo.create(
+  img_url: "Shuttr/aurora.jpg",
+  title: "Aurora",
+  description: "Thank you for the warm welcome, Iceland.",
+  owner_id: chrisy.id
+)
+
+photo3 = Photo.create(
+  img_url: "Shuttr/35236694256.jpg",
+  title: "Stranger in Taipei",
+  owner_id: demo.id
+)
+
+photo4 = Photo.create(
+  img_url: "Shuttr/15036232670.jpg",
+  title: "Who's there?",
+  owner_id: chrisy.id
+)
+
+photo5 = Photo.create(
+  img_url: "Shuttr/butter_sunset.jpg",
+  title: "Such wow",
+  owner_id: butterpup.id
+)
+
+photo6 = Photo.create(
+  img_url: "Shuttr/15366293662.jpg",
+  title: "Stranger in Seoul",
+  owner_id: demo.id
+)
+
+photo7 = Photo.create(
+  img_url: "Shuttr/15036104159.jpg",
+  title: "Women in hanbok at Unhyeongung",
+  description: "Happened upon this little scene while exploring Seoul.",
+  owner_id: chrisy.id
+)
+
+photo8 = Photo.create(
+  img_url: "Shuttr/32181898600.jpg",
+  title: "Stranger in Hong Kong",
+  owner_id: demo.id
+)
+
+photo9 = Photo.create(
   img_url: "Shuttr/DSCF6849.jpg",
   title: "Boys of North Beach",
   owner_id: lifeatappacademy.id
 )
 
-photo2 = Photo.create(
+photo10 = Photo.create(
+  img_url: "Shuttr/34046762616.jpg",
+  title: "Stranger in Angkor Wat",
+  owner_id: demo.id
+)
+
+photo11 = Photo.create(
+  img_url: "Shuttr/DSCF5974.jpg",
+  title: "Kenta",
+  description: "Reassessing life.",
+  owner_id: lifeatappacademy.id
+)
+
+photo12 = Photo.create(
   img_url: "Shuttr/DSCF6788.jpg",
   title: "Smoke Break",
   owner_id: lifeatappacademy.id
 )
 
-photo3 = Photo.create(
-  img_url: "Shuttr/DSCF5974.jpg",
-  title: "Kenta",
-  owner_id: lifeatappacademy.id
-)
-
-photo4 = Photo.create(
+photo13 = Photo.create(
   img_url: "Shuttr/DSCF6368.jpg",
   title: "Andres",
+  description: "Cool dude.",
   owner_id: lifeatappacademy.id
 )
 
-photo5 = Photo.create(
+photo14 = Photo.create(
+  img_url: "Shuttr/93f68e1970.jpg",
+  title: "Stranger in San Francisco",
+  owner_id: demo.id
+)
+
+photo15 = Photo.create(
+  img_url: "Shuttr/jokulsarlon.jpg",
+  title: "Jökulsárlón",
+  description: "Ice ice baby",
+  owner_id: chrisy.id
+)
+
+photo16 = Photo.create(
   img_url: "Shuttr/DSCF6714.jpg",
   title: "Chainsmokers",
   description: "Chris and Thai",
   owner_id: lifeatappacademy.id
 )
 
-photo6 = Photo.create(
+photo17 = Photo.create(
   img_url: "Shuttr/DSCF6700.jpg",
   title: "Carmen",
   owner_id: lifeatappacademy.id
 )
 
-photo7 = Photo.create(
+photo18 = Photo.create(
   img_url: "Shuttr/DSCF6961.jpg",
   title: "Tommy and Rebekah",
   owner_id: lifeatappacademy.id
 )
 
-photo8 = Photo.create(
+photo19 = Photo.create(
   img_url: "Shuttr/DSCF5429.jpg",
   title: "Chilling in the backyard",
   description: "I need a haircut",
   owner_id: butterpup.id
 )
+
+photo20 = Photo.create(
+  img_url: "Shuttr/DSCF6992.jpg",
+  title: "Alison",
+  description: "Taking a break from coding.",
+  owner_id: lifeatappacademy.id
+)
+
+# Set creation date to random date
+Photo.all.each do |photo|
+  photo.created_at = Date.today - rand(10).days
+  photo.save
+end

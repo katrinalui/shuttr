@@ -35,7 +35,7 @@ class PhotoShow extends React.Component {
       return (
         <div className="photo-show">
           <Image publicId={photo.img_url} cloudName="shuttr" >
-            <Transformation width="800" crop="scale" />
+            <Transformation width="1000" crop="scale" />
           </Image>
           <div className="photo-info">
             <a>

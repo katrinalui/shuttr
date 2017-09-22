@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import PhotoIndex from './photo_index';
 import { requestAllPhotos } from '../../actions/photo_actions';
+import { selectAllPhotos } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  photos: Object.values(state.entities.photos).reverse(),
+  photos: selectAllPhotos(state),
   loading: state.ui.loading
 });
 
