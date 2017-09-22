@@ -3,7 +3,7 @@ import PhotoIndex from './photo_index';
 import { requestAllPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = state => ({
-  photos: Object.values(state.entities.photos),
+  photos: Object.values(state.entities.photos).reverse(),
   loading: state.ui.loading
 });
 

@@ -21,7 +21,7 @@ class PhotoIndex extends React.Component {
           <h2>All Activity</h2>
 
           <div className="photos-home-index">
-            { photos.reverse().map(photo =>
+            { photos.map(photo =>
               <PhotoIndexItem key={photo.id} photo={photo}/>
             ) }
           </div>

@@ -17,7 +17,7 @@
   width: 90%;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .photos-home-index {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -25,7 +25,7 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1400px) {
   .photos-home-index {
     -moz-column-count: 3;
     -webkit-column-count: 3;
@@ -33,7 +33,7 @@
   }
 }
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1900px) {
   .photos-home-index {
     -moz-column-count: 4;
     -webkit-column-count: 4;

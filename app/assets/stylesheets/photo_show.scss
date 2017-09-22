@@ -32,3 +32,19 @@
   font-size: 22px;
   margin-bottom: 5px;
 }
+
+@media only screen and
+(min-device-width: 320px) and
+(max-device-width: 480px){
+  .photo-show {
+    width: 100vw;
+  }
+
+  .photo-show > img {
+    width: 100vw;
+  }
+
+  .photo-info {
+    width: 100vw;
+  }
+}
