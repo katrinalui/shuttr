@@ -2,22 +2,18 @@
   background: url("http://res.cloudinary.com/shuttr/image/upload/v1505958827/skogafoss_z6twbu.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 700px;
+  height: 100vh;
   position: relative;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
 }
 
 @media only screen and (max-width : 450px){
-  .hero-img {
-    background-attachment: scroll;
+  .hero-text h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
   }
 }
 
@@ -33,7 +29,7 @@
 
 .hero-text h1 {
   font-size: 40px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .hero-text > button {
