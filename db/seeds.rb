@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+# Users
 demo = User.create(
   username: "Demo",
   password: "password",
@@ -22,40 +23,54 @@ lifeatappacademy = User.create(
   img_url: "profile/corgi.jpg"
 )
 
+# Photos
+
 photo1 = Photo.create(
-  img_url: "Shuttr/DSCF5429.jpg",
-  title: "Chilling in the backyard",
-  description: "I need a haircut",
-  owner_id: butterpup.id
+  img_url: "Shuttr/DSCF6849.jpg",
+  title: "Boys of North Beach",
+  owner_id: lifeatappacademy.id
 )
 
 photo2 = Photo.create(
+  img_url: "Shuttr/DSCF6788.jpg",
+  title: "Smoke Break",
+  owner_id: lifeatappacademy.id
+)
+
+photo3 = Photo.create(
+  img_url: "Shuttr/DSCF5974.jpg",
+  title: "Kenta",
+  owner_id: lifeatappacademy.id
+)
+
+photo4 = Photo.create(
+  img_url: "Shuttr/DSCF6368.jpg",
+  title: "Andres",
+  owner_id: lifeatappacademy.id
+)
+
+photo5 = Photo.create(
   img_url: "Shuttr/DSCF6714.jpg",
   title: "Chainsmokers",
   description: "Chris and Thai",
   owner_id: lifeatappacademy.id
 )
 
-photo3 = Photo.create(
+photo6 = Photo.create(
   img_url: "Shuttr/DSCF6700.jpg",
   title: "Carmen",
   owner_id: lifeatappacademy.id
 )
 
-photo4 = Photo.create(
-  img_url: "Shuttr/DSCF6849.jpg",
-  title: "Boys of North Beach",
+photo7 = Photo.create(
+  img_url: "Shuttr/DSCF6961.jpg",
+  title: "Tommy and Rebekah",
   owner_id: lifeatappacademy.id
 )
 
-photo5 = Photo.create(
-  img_url: "Shuttr/DSCF6788.jpg",
-  title: "Smoke Break",
-  owner_id: lifeatappacademy.id
-)
-
-photo6 = Photo.create(
-  img_url: "Shuttr/DSCF5974.jpg",
-  title: "Kenta",
-  owner_id: lifeatappacademy.id
+photo8 = Photo.create(
+  img_url: "Shuttr/DSCF5429.jpg",
+  title: "Chilling in the backyard",
+  description: "I need a haircut",
+  owner_id: butterpup.id
 )

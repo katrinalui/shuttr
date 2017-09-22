@@ -16,10 +16,14 @@ class PhotoIndex extends React.Component {
       );
     } else {
       return (
-        <div className="photos-home-index">
-          { photos.map(photo =>
-            <PhotoIndexItem key={photo.id} photo={photo}/>
-          ) }
+        <div className="homepage">
+          <h2>All Activity</h2>
+
+          <div className="photos-home-index">
+            { photos.reverse().map(photo =>
+              <PhotoIndexItem key={photo.id} photo={photo}/>
+            ) }
+          </div>
         </div>
       );
     }

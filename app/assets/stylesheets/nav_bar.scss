@@ -1,12 +1,24 @@
-.navbar {
+.dashboard-nav {
   background-color: #424242;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0px 20px;
+}
+
+.dashboard-nav h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  color: white;
+  float: left;
 }
 
 .user-buttons {
+  float: right;
   display: flex;
   justify-content: flex-end;
-  height: 50px;
-  align-items: center;
 }
 
 .user-buttons button {
@@ -17,7 +29,6 @@
   border-radius: 5px;
   padding: 2px 10px 2px 10px;
   background-color: white;
-  margin-right: 10px;
 }
 
 .user-buttons > img {

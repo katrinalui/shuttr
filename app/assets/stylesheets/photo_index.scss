@@ -1,12 +1,50 @@
-.photos-home-index {
+.homepage {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.homepage h2 {
+  font-size: 24px;
+  margin: 15px 0px 25px 0px;
+}
+
+.photos-home-index {
   position: relative;
+  column-count: 1;
+  column-gap: 2em;
+  width: 90%;
+}
+
+@media only screen and (min-width: 600px) {
+  .photos-home-index {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .photos-home-index {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .photos-home-index {
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+  }
 }
 
 .photo-index-item {
-  margin: 20px 20px 0px 20px;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
 }
 
 .photo-index-item-desc {

@@ -3,18 +3,12 @@
   background-position: center center;
   background-repeat: no-repeat;
   height: 100vh;
+  width: 100%;
   position: relative;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-@media only screen and (max-width : 450px){
-  .hero-text h1 {
-    font-size: 25px;
-    letter-spacing: 2px;
-  }
 }
 
 .hero-text {
@@ -29,6 +23,13 @@
 .hero-text h1 {
   font-size: 40px;
   letter-spacing: 2px;
+}
+
+@media only screen and (max-width : 450px){
+  .hero-text h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
 }
 
 .hero-text > button {

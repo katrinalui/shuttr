@@ -11,7 +11,7 @@ const PhotoIndexItem = ({photo}) => {
       </div>
       <a>
         <Image publicId={photo.img_url} cloudName="shuttr" >
-          <Transformation width="400" crop="scale" />
+          <Transformation width="600" crop="scale" />
         </Image>
       </a>
     </div>
