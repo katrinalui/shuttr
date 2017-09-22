@@ -34,22 +34,29 @@ class PhotoShow extends React.Component {
     } else {
       return (
         <div className="photo-show">
-          <Image publicId={photo.img_url} cloudName="shuttr" >
-            <Transformation width="1000" crop="scale" />
-          </Image>
+          <div className="photo-show-img">
+            <Image publicId={photo.img_url} cloudName="shuttr" >
+              <Transformation width="1000" crop="scale" />
+            </Image>
+          </div>
           <div className="photo-info">
-            <a>
-              <Image publicId={photo.owner_avatar}
-                cloudName="shuttr"
-                className="avatar"
-                >
-                <Transformation width="100" height="100" crop="thumb" />
-              </Image>
-            </a>
-            <span className="photo-text">
-              <h2>{ photo.title }</h2>
-              <p>{ photo.description }</p>
-            </span>
+            <div className="photo-info-left">
+              <a>
+                <Image publicId={photo.owner_avatar}
+                  cloudName="shuttr"
+                  className="avatar"
+                  >
+                  <Transformation width="100" height="100" crop="thumb" />
+                </Image>
+              </a>
+              <span className="photo-text">
+                <h2>{ photo.title }</h2>
+                <p>{ photo.description }</p>
+              </span>
+            </div>
+            <div className="photo-info-right">
+              Posted on { photo.post_date }
+            </div>
           </div>
         </div>
       );
