@@ -64,8 +64,13 @@
     width: 100vw;
   }
 
-  .photo-show > img {
+  .photo-show-img {
     width: 100vw;
+    max-height: 80vh;
+
+    img{
+      width: 100vw;
+    }
   }
 
   .photo-info {
