@@ -6,6 +6,7 @@ const PhotoIndexItem = ({photo}) => {
     <div className="photo-index-item">
       <div className="photo-index-item-desc">
         <span className="username">{photo.owner}</span>
+        &nbsp;&nbsp;
         <span className="posted-time-ago">{photo.posted_time_ago}</span>
       </div>
       <a>

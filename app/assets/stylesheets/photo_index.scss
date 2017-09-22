@@ -1,0 +1,23 @@
+.photos-home-index {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.photo-index-item {
+  margin: 20px 20px 0px 20px;
+}
+
+.photo-index-item-desc {
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px;
+
+    .username {
+      font-size: 14px;
+    }
+
+    .posted-time-ago {
+      font-size: 12px;
+      color: grey;
+    }
+}

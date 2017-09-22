@@ -17,6 +17,8 @@
 $open-sans: 'Open Sans', sans-serif;
 $roboto: 'Roboto', sans-serif;
 
+$dark-grey: #424242;
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300');
 @import "font-awesome";
 @import "reset";
@@ -25,3 +27,4 @@ $roboto: 'Roboto', sans-serif;
 @import "splash";
 @import "nav_bar";
 @import "session_form";
+@import "photo_index";

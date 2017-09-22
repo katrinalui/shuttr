@@ -10,7 +10,7 @@ demo = User.create(
 
 butterpup = User.create(
   username: "butterpup",
-  password: "poopy",
+  password: "happypup",
   bio: "🐶",
   img_url: "profile/happy_butter.png"
 )
@@ -25,7 +25,8 @@ lifeatappacademy = User.create(
 photo1 = Photo.create(
   img_url: "Shuttr/DSCF5429.jpg",
   title: "Chilling in the backyard",
-  description: "I need a haircut."
+  description: "I need a haircut",
+  owner_id: butterpup.id
 )
 
 photo2 = Photo.create(
@@ -50,5 +51,11 @@ photo4 = Photo.create(
 photo5 = Photo.create(
   img_url: "Shuttr/DSCF6788.jpg",
   title: "Smoke Break",
+  owner_id: lifeatappacademy.id
+)
+
+photo6 = Photo.create(
+  img_url: "Shuttr/DSCF5974.jpg",
+  title: "Kenta",
   owner_id: lifeatappacademy.id
 )
