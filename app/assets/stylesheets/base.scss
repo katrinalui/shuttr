@@ -16,3 +16,16 @@
 .avatar {
   border-radius: 100%;
 }
+
+.logo {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  color: white;
+  float: left;
+  opacity: .9;
+}
+
+a:hover, button:hover {
+  color: #a3a4a3;
+}
