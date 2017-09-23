@@ -38,7 +38,6 @@ class PhotoForm extends React.Component {
       }
 
       if (res.body.secure_url !== '') {
-        console.log("Response", res);
         this.setState({
           img_url: /Shuttr.*/.exec(res.body.secure_url)[0]
         });
@@ -65,6 +64,8 @@ class PhotoForm extends React.Component {
           multiple={false}
           accept="image/*"
           onDrop={this.onImageDrop}>
+          <p>This isn't fully functional yet. Do not use!</p>
+          <br />
           <p>Drag and drop a photo or click to select a file to upload.</p>
         </Dropzone>
       );
