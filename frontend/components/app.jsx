@@ -5,6 +5,7 @@ import SplashContainer from './splash/splash_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import PhotoIndexContainer from './photos/photo_index_container';
 import PhotoShowContainer from './photos/photo_show_container';
+import PhotoFormContainer from './photos/photo_form_container';
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
         <AuthRoute exact path="/" component={SplashContainer} />
         <ProtectedRoute path="/home" component={PhotoIndexContainer} />
         <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
+        <ProtectedRoute path='/upload' component={PhotoFormContainer} />
       </Switch>
     </main>
   </div>
