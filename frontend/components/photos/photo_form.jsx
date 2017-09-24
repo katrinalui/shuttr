@@ -2,6 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { Image, Transformation } from 'cloudinary-react';
+import LoadingSpinner from '../loading_spinner';
 
 const CLOUDINARY_UPLOAD_PRESET = "user_uploads";
 const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/shuttr/image/upload";
@@ -10,6 +11,7 @@ class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isUploading: false,
       uploadedFile: null,
       img_url: '',
       title: '',
@@ -28,6 +30,8 @@ class PhotoForm extends React.Component {
   }
 
   handleImageUpload(file) {
+    this.setState({ isUploading: true });
+
     const upload = request.post(CLOUDINARY_UPLOAD_URL)
                           .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                           .field('file', file);
@@ -35,11 +39,13 @@ class PhotoForm extends React.Component {
     upload.end((err, res) => {
       if (err) {
         console.error(err);
+        this.setState({ isUploading: false });
       }
 
       if (res.body.secure_url !== '') {
         this.setState({
-          img_url: /Shuttr.*/.exec(res.body.secure_url)[0]
+          img_url: /Shuttr.*/.exec(res.body.secure_url)[0],
+          isUploading: false
         });
       }
     });
@@ -57,7 +63,9 @@ class PhotoForm extends React.Component {
   }
 
   render() {
-    if (this.state.img_url === '') {
+    if (this.state.isUploading) {
+      return <LoadingSpinner />;
+    } else if (this.state.img_url === '') {
       return (
         <Dropzone
           className="dropzone"

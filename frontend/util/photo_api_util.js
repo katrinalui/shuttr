@@ -1,5 +1,6 @@
 const CLOUDINARY_UPLOAD_PRESET = "user_uploads";
 const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/shuttr/image/upload";
+const CLOUDINARY_CLOUD_NAME = "shuttr";
 
 export const getPhotos = () => (
   $.ajax({
@@ -39,16 +40,5 @@ export const deletePhoto = (photoId) => (
   $.ajax({
     url: `api/photos/${photoId}`,
     method: 'DELETE'
-  })
-);
-
-export const postCloudinary = (file) => (
-  $.ajax({
-    url: CLOUDINARY_UPLOAD_URL,
-    method: 'POST',
-    data: {
-      upload_preset: CLOUDINARY_UPLOAD_PRESET,
-      file
-    }
   })
 );
