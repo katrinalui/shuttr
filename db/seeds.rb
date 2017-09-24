@@ -3,7 +3,7 @@
 
 # Users
 demo = User.create(
-  username: "Demo",
+  username: "guest",
   password: "password",
   bio: "Hello, World!",
   img_url: "profile/photographer.jpg"

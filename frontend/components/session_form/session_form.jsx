@@ -7,14 +7,15 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      modalIsOpen: false,
-      formType: "",
+      formType: props.formType
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.openForm = this.openForm.bind(this);
-    this.closeForm = this.closeForm.bind(this);
     this.toggleFormLink = this.toggleFormLink.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+
+    if (props.demoStart) {
+      this.loginDemo();
+    }
   }
 
   update(field) {
@@ -44,23 +45,6 @@ class SessionForm extends React.Component {
     );
   }
 
-  openForm(formType) {
-    this.setState({
-      modalIsOpen: true,
-      formType
-    });
-  }
-
-  closeForm() {
-    this.setState({
-      modalIsOpen: false,
-      formType: "",
-      username: "",
-      password: ""
-    });
-    this.props.clearErrors();
-  }
-
   toggleFormLink() {
     if (this.state.formType === "Sign Up") {
       return (
@@ -83,57 +67,49 @@ class SessionForm extends React.Component {
     }
   }
 
+  loginDemo() {
+    const demoUsername = 'guest'.split('');
+    const demoPassword= 'password'.split('');
+
+    const intervalId = setInterval(() => {
+      if (demoUsername.length > 0) {
+        this.setState({
+          username: this.state.username + demoUsername.shift()
+        });
+      } else if (demoPassword.length > 0) {
+        this.setState({
+          password: this.state.password + demoPassword.shift()
+        });
+      } else {
+        clearInterval(intervalId);
+        this.props.login(this.state);
+      }
+    }, 100);
+  }
+
   render() {
     return (
-      <div className="session-form-container">
-        <nav className="splash-nav">
-          <h1 className="logo">Shuttr</h1>
-
-          <div className="signup-login">
-            <button onClick={() => this.openForm("Log In")}>Log In</button>
-            <button onClick={() => this.openForm("Sign Up")}>Sign Up</button>
-          </div>
-        </nav>
-
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          contentLabel="Modal"
-          onRequestClose={this.closeForm}
-          className={{
-            base: 'session-form-modal'
-          }}
-          overlayClassName={{
-            base: 'session-form-overlay'
-          }}
-          >
-          <button onClick={() => this.closeForm()}>
-            <i className="fa fa-times" aria-hidden="true"></i>
-          </button>
-
-          <div className="session-form-box">
-            <h2>{this.state.formType}</h2>
-            {this.renderErrors()}
-            <form className="session-form" onSubmit={this.handleSubmit}>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                placeholder="Username"
-              />
-              <br />
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
-              />
-              <br />
-              <input type="submit"
-                value={this.state.formType}
-              />
-            </form>
-
-            {this.toggleFormLink()}
-          </div>
-        </Modal>
+      <div className="session-form-box">
+        <h2>{this.state.formType}</h2>
+        {this.renderErrors()}
+        <form className="session-form" onSubmit={this.handleSubmit}>
+          <input type="text"
+            value={this.state.username}
+            onChange={this.update("username")}
+            placeholder="Username"
+          />
+          <br />
+          <input type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            placeholder="Password"
+          />
+          <br />
+          <input type="submit"
+            value={this.state.formType}
+          />
+        </form>
+        {this.toggleFormLink()}
       </div>
     );
   }
