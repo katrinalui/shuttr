@@ -3,7 +3,6 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { Image, Transformation } from 'cloudinary-react';
 import LoadingSpinner from '../loading_spinner';
-import { Redirect } from 'react-router-dom';
 
 const CLOUDINARY_UPLOAD_PRESET = "user_uploads";
 const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/shuttr/image/upload";
@@ -65,6 +64,10 @@ class PhotoForm extends React.Component {
     this.props.createPhoto(this.state.photo);
     this.props.history.push("/");
   }
+
+  // onSubmitSuccess() {
+  //
+  // }
 
   render() {
     if (this.state.isUploading) {
