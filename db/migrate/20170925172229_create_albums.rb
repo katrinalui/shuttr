@@ -6,5 +6,6 @@ class CreateAlbums < ActiveRecord::Migration[5.1]
       t.integer :owner_id, null: false
       t.timestamps
     end
+    add_index :albums, :owner_id
   end
 end
