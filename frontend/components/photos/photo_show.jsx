@@ -1,21 +1,21 @@
 import React from 'react';
 import LoadingSpinner from '../loading_spinner';
+import PhotoEditMenu from './photo_edit_menu';
 import { Image, Transformation } from 'cloudinary-react';
+import Modal from 'react-modal';
 
 class PhotoShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        isFirstRender: true
+      modalIsOpen: false
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentWillMount() {
     this.props.requestPhoto(this.props.match.params.photoId);
-  }
-
-  componentDidMount() {
-    this.setState({ isFirstRender: false });
   }
 
   componentWillReceiveProps(newProps) {
@@ -24,43 +24,79 @@ class PhotoShow extends React.Component {
     }
   }
 
+  openModal() {
+    this.setState({
+      modalIsOpen: true
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      modalIsOpen: false
+    });
+  }
+
   render() {
     const { photo, loading } = this.props;
 
-    if (loading || this.state.isFirstRender) {
+    if (loading) {
       return (
         <LoadingSpinner />
       );
-    } else {
-      return (
-        <div className="photo-show">
-          <div className="photo-show-img">
-            <Image publicId={photo.img_url} cloudName="shuttr" >
-              <Transformation width="1000" crop="scale" />
-            </Image>
-          </div>
-          <div className="photo-info">
-            <div className="photo-info-left">
-              <a>
-                <Image publicId={photo.owner_avatar}
-                  cloudName="shuttr"
-                  className="avatar"
-                  >
-                  <Transformation width="100" height="100" crop="thumb" />
-                </Image>
-              </a>
-              <span className="photo-text">
-                <h2>{ photo.title }</h2>
-                <p>{ photo.description }</p>
-              </span>
-            </div>
-            <div className="photo-info-right">
-              Posted on { photo.post_date }
-            </div>
+    }
+
+    if (!photo) { return null; }
+
+    return (
+      <div className="photo-show">
+        <div className="photo-show-img">
+          <Image publicId={photo.img_url} cloudName="shuttr" >
+            <Transformation width="1000" crop="scale" />
+          </Image>
+          <div className="photo-edit-bar">
+            <button onClick={this.openModal}>
+              <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <Modal
+                isOpen={this.state.modalIsOpen}
+                contentLabel="Modal"
+                onRequestClose={this.closeModal}
+                className={{
+                  base: 'edit-menu-modal'
+                }}
+                overlayClassName={{
+                  base: 'edit-menu-overlay'
+                }}
+              >
+                <PhotoEditMenu
+                  photoId={photo.id}
+                  destroyPhoto={this.props.destroyPhoto}
+                  history={this.props.history}
+                />
+              </Modal>
+            </button>
           </div>
         </div>
-      );
-    }
+        <div className="photo-info">
+          <div className="photo-info-left">
+            <a>
+              <Image publicId={photo.owner_avatar}
+                cloudName="shuttr"
+                className="avatar"
+                >
+                <Transformation width="100" height="100" crop="thumb" />
+              </Image>
+            </a>
+            <span className="photo-text">
+              <h2>{ photo.title }</h2>
+              <p>{ photo.description }</p>
+            </span>
+          </div>
+          <div className="photo-info-right">
+            Posted on { photo.post_date }
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

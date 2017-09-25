@@ -13,15 +13,21 @@ class PhotoForm extends React.Component {
     this.state = {
       isUploading: false,
       uploadedFile: null,
-      photo: {
-        img_url: '',
-        title: '',
-        description: ''
-      }
+      photo: props.photo
     };
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  // componentWillMount() {
+  //   this.props.requestPhoto(this.props.match.params.photoId);
+  // }
+
+  // componentWillReceiveProps(newProps) {
+  //   this.setState({
+  //     photo: newProps.photo
+  //   });
+  // }
 
   onImageDrop(files) {
     this.setState({
@@ -61,18 +67,16 @@ class PhotoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPhoto(this.state.photo);
-    this.props.history.push("/");
+    this.props.processPhoto(this.state.photo)
+      .then(res => this.props.history.push(`/photos/${res.photo.id}`));
   }
 
-  // onSubmitSuccess() {
-  //
-  // }
-
   render() {
+    console.log(this.props);
+
     if (this.state.isUploading) {
       return <LoadingSpinner />;
-    } else if (this.state.photo.img_url === '') {
+    } else if (this.state.photo.img_url === '' && this.props.formType === 'new') {
       return (
         <Dropzone
           className="dropzone"
