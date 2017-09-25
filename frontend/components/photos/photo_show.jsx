@@ -47,17 +47,22 @@ class PhotoShow extends React.Component {
 
     if (!photo) { return null; }
 
+    const getParent = () => {
+      return document.querySelector('#edit-menu-button');
+    };
+
     let editButton = null;
 
     if (currentUser.id === photo.owner_id) {
       editButton = (
         <div className="photo-edit-bar">
-          <button onClick={this.openModal}>
+          <button id="edit-menu-button" onClick={this.openModal}>
             <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
             <Modal
               isOpen={this.state.modalIsOpen}
               contentLabel="Modal"
               onRequestClose={this.closeModal}
+              parentSelector={getParent}
               className={{
                 base: 'edit-menu-modal'
               }}

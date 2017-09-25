@@ -31,6 +31,10 @@
   display: flex;
   justify-content: flex-end;
   margin: 0px 50px 5px 0px;
+
+    button {
+      position: relative;
+    }
 }
 
 .photo-edit-menu {
@@ -39,6 +43,8 @@
 
   a {
     margin-bottom: 10px;
+    color: grey;
+    font-size: 16px;
   }
 }
 
@@ -116,7 +122,6 @@
 }
 
 .edit-menu-overlay {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -125,13 +130,14 @@
 
 .edit-menu-modal {
   position: absolute;
-  top: 75%;
+  bottom: 15%;
   right: 1%;
   transform: translate(-0%, -50%);
   background: white;
   padding: 15px;
   width: 140px;
   height: 50px;
+  border-radius: 3px;
 }
 
 .edit-form-modal {
@@ -162,17 +168,18 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .delete-menu-modal {
   position: absolute;
-  top: 45%;
-  left: 24%;
+  top: 40%;
+  left: 26%;
   background: white;
   padding: 20px;
   width: 600px;
   height: 180px;
-  border: 1px solid #bababa;
+  border: 1px solid darkgrey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

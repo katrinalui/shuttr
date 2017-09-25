@@ -47,29 +47,21 @@ class PhotoEditMenu extends React.Component {
   }
 
   render() {
+    const getParent = () => {
+      return document.querySelector('.body');
+    };
+
     return (
       <div className="photo-edit-menu">
         <Link to={`/photos/${this.props.photoId}/edit`}>Edit</Link>
         <a onClick={this.openModal}>Delete</a>
 
-        <Modal
-          isOpen={this.state.editModalIsOpen}
-          contentLabel="Edit Modal"
-          onRequestClose={this.closeEditModal}
-          className={{
-            base: 'edit-menu-modal'
-          }}
-          overlayClassName={{
-            base: 'edit-menu-overlay'
-          }}>
-
-          <PhotoFormContainer formType="edit"/>
-        </Modal>
 
         <Modal
           isOpen={this.state.modalIsOpen}
           contentLabel="Modal"
           onRequestClose={this.closeModal}
+          parentSelector={getParent}
           className={{
             base: 'delete-menu-modal'
           }}
@@ -92,4 +84,17 @@ class PhotoEditMenu extends React.Component {
   }
 }
 
+// <Modal
+//   isOpen={this.state.editModalIsOpen}
+//   contentLabel="Edit Modal"
+//   onRequestClose={this.closeEditModal}
+//   className={{
+//     base: 'edit-menu-modal'
+//   }}
+//   overlayClassName={{
+//     base: 'edit-menu-overlay'
+//   }}>
+//
+//   <PhotoFormContainer formType="edit"/>
+// </Modal>
 export default PhotoEditMenu;
