@@ -18,7 +18,7 @@ export default ({ currentUser, logout }) => {
           >
           <Transformation height="100" width="100" crop="thumb" />
         </Image>
-        <Link to="/upload">
+        <Link to="/photos/upload">
           <i className="fa fa-cloud-upload" aria-hidden="true"></i>
         </Link>
         <button onClick={logout}>Logout</button>

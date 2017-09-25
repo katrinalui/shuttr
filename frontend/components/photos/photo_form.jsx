@@ -22,7 +22,9 @@ class PhotoForm extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestPhoto(this.props.match.params.photoId);
+    if (this.props.formType === 'edit') {
+      this.props.requestPhoto(this.props.match.params.photoId);
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -124,7 +126,7 @@ class PhotoForm extends React.Component {
               <button onClick={this.cancelForm}>Cancel</button>
               </div>
             </form>
-            
+
           </div>
         </div>
       );

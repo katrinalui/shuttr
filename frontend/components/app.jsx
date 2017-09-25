@@ -17,9 +17,9 @@ const App = () => (
       <Switch>
         <AuthRoute exact path="/" component={SplashContainer} />
         <ProtectedRoute path="/home" component={PhotoIndexContainer} />
+        <ProtectedRoute path='/photos/upload' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId/edit' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
-        <ProtectedRoute path='/upload' component={PhotoFormContainer} />
       </Switch>
     </main>
   </div>
