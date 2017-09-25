@@ -109,7 +109,10 @@ class PhotoForm extends React.Component {
                 value={this.state.photo.description}
               />
               <br />
-              <input type="submit" value="Upload" />
+              <input
+                type="submit"
+                value={this.props.formType === 'new' ? "Upload" : "Edit" }
+              />
             </form>
           </div>
         </div>

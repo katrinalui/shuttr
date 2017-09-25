@@ -4,7 +4,8 @@ import { requestPhoto, destroyPhoto } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   photo: state.entities.photos[ownProps.match.params.photoId],
-  loading: state.ui.loading
+  loading: state.ui.loading,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

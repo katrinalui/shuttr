@@ -37,7 +37,7 @@ class PhotoShow extends React.Component {
   }
 
   render() {
-    const { photo, loading } = this.props;
+    const { photo, loading, currentUser } = this.props;
 
     if (loading) {
       return (
@@ -47,34 +47,42 @@ class PhotoShow extends React.Component {
 
     if (!photo) { return null; }
 
+    let editButton = null;
+
+    if (currentUser.id === photo.owner_id) {
+      editButton = (
+        <div className="photo-edit-bar">
+          <button onClick={this.openModal}>
+            <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              contentLabel="Modal"
+              onRequestClose={this.closeModal}
+              className={{
+                base: 'edit-menu-modal'
+              }}
+              overlayClassName={{
+                base: 'edit-menu-overlay'
+              }}
+              >
+              <PhotoEditMenu
+                photoId={photo.id}
+                destroyPhoto={this.props.destroyPhoto}
+                history={this.props.history}
+                />
+            </Modal>
+          </button>
+        </div>
+      );
+    }
+
     return (
       <div className="photo-show">
         <div className="photo-show-img">
           <Image publicId={photo.img_url} cloudName="shuttr" >
             <Transformation width="1000" crop="scale" />
           </Image>
-          <div className="photo-edit-bar">
-            <button onClick={this.openModal}>
-              <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
-              <Modal
-                isOpen={this.state.modalIsOpen}
-                contentLabel="Modal"
-                onRequestClose={this.closeModal}
-                className={{
-                  base: 'edit-menu-modal'
-                }}
-                overlayClassName={{
-                  base: 'edit-menu-overlay'
-                }}
-              >
-                <PhotoEditMenu
-                  photoId={photo.id}
-                  destroyPhoto={this.props.destroyPhoto}
-                  history={this.props.history}
-                />
-              </Modal>
-            </button>
-          </div>
+          { editButton }
         </div>
         <div className="photo-info">
           <div className="photo-info-left">
