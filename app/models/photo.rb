@@ -21,6 +21,15 @@ class Photo < ApplicationRecord
              foreign_key: :owner_id,
              class_name: :User
 
+  has_many :album_photos,
+           primary_key: :id,
+           foreign_key: :photo_id,
+           class_name: :AlbumPhoto
+
+  has_many :albums,
+           through: :album_photos,
+           source: :album
+
   def posted_time_ago
     time_ago_in_words(self.created_at) + " ago"
   end

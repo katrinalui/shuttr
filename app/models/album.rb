@@ -12,4 +12,18 @@
 
 class Album < ApplicationRecord
   validates :title, presence: true
+
+  belongs_to :owner,
+             primary_key: :id,
+             foreign_key: :owner_id,
+             class_name: :User
+
+  has_many :album_photos,
+           primary_key: :id,
+           foreign_key: :album_id,
+           class_name: :AlbumPhoto
+
+  has_many :photos,
+           through: :album_photos,
+           source: :photo
 end
