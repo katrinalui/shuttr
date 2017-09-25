@@ -63,6 +63,6 @@ class User < ApplicationRecord
   end
 
   def set_default_img
-    self.img_url ||= "Shuttr_Icon.png"
+    self.img_url ||= "shuttr_logo_zby78u.png"
   end
 end

@@ -26,4 +26,12 @@ class Album < ApplicationRecord
   has_many :photos,
            through: :album_photos,
            source: :photo
+
+  def cover_photo_url
+    self.photos[0].img_url
+  end
+
+  def calculate_photos
+    self.photos.count
+  end
 end
