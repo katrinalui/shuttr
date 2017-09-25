@@ -2,6 +2,7 @@ import React from 'react';
 import { AuthRoute } from '../../util/route_util';
 import SessionFormContainer from '../session_form/session_form_container';
 import Modal from 'react-modal';
+import { Image } from 'cloudinary-react';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -43,7 +44,10 @@ class Splash extends React.Component {
     return (
       <div className="hero-img">
         <nav className="splash-nav">
-          <h1 className="logo">Shuttr</h1>
+          <Image publicId="shuttr_logo_name.png"
+            cloudName="shuttr"
+            className="logo"
+          />
 
           <div className="signup-login">
             <button onClick={() => this.openForm("Log In")}>Log In</button>

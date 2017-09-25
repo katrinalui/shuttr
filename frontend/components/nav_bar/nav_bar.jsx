@@ -6,7 +6,10 @@ export default ({ currentUser, logout }) => {
   return (
     <div className="dashboard-nav">
       <Link to="/home">
-        <h1 className="logo">Shuttr</h1>
+        <Image publicId="shuttr_logo_name.png"
+          cloudName="shuttr"
+          className="logo"
+        />
       </Link>
       <div className="user-buttons">
         <Image publicId={currentUser.img_url}

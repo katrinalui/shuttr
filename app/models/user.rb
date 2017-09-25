@@ -58,7 +58,6 @@ class User < ApplicationRecord
   end
 
   def set_default_img
-    self.img_url ||=
-      "http://res.cloudinary.com/shuttr/image/upload/v1505847469/default_profile_ig2uvi.jpg"
+    self.img_url ||= "Shuttr_Icon.png"
   end
 end
