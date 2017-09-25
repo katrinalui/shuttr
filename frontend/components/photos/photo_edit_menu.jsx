@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import PhotoFormContainer from './photo_form_container';
 
@@ -49,7 +49,7 @@ class PhotoEditMenu extends React.Component {
   render() {
     return (
       <div className="photo-edit-menu">
-        <a onClick={this.openEditModal}>Edit</a>
+        <Link to={`/photos/${this.props.photoId}/edit`}>Edit</Link>
         <a onClick={this.openModal}>Delete</a>
 
         <Modal
@@ -57,13 +57,13 @@ class PhotoEditMenu extends React.Component {
           contentLabel="Edit Modal"
           onRequestClose={this.closeEditModal}
           className={{
-            base: 'edit-form-modal'
+            base: 'edit-menu-modal'
           }}
           overlayClassName={{
-            base: 'edit-form-overlay'
+            base: 'edit-menu-overlay'
           }}>
 
-          <PhotoFormContainer photoId={this.props.photoId} formType="edit"/>
+          <PhotoFormContainer formType="edit"/>
         </Modal>
 
         <Modal

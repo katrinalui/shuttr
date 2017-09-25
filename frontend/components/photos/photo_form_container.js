@@ -8,11 +8,11 @@ const mapStateToProps = (state, ownProps) => {
     title: '',
     description: ''
   };
+  let formType = 'new';
 
-  const formType = ownProps.formType || 'new';
-
-  if (formType === 'edit') {
-    photo = state.entities.photos[ownProps.photoId];
+  if (ownProps.location.pathname.includes('edit')) {
+    photo = Object.assign({}, photo, state.entities.photos[ownProps.match.params.photoId]);
+    formType = 'edit';
   }
 
   return {
@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   let processForm = createPhoto;
 
-  if (ownProps.formType === 'edit') {
+  if (ownProps.location.pathname.slice(1) === 'edit') {
     processForm = editPhoto;
   }
 

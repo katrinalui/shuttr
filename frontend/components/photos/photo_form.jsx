@@ -19,15 +19,15 @@ class PhotoForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentWillMount() {
-  //   this.props.requestPhoto(this.props.match.params.photoId);
-  // }
+  componentWillMount() {
+    this.props.requestPhoto(this.props.match.params.photoId);
+  }
 
-  // componentWillReceiveProps(newProps) {
-  //   this.setState({
-  //     photo: newProps.photo
-  //   });
-  // }
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      photo: newProps.photo
+    });
+  }
 
   onImageDrop(files) {
     this.setState({
@@ -67,13 +67,11 @@ class PhotoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processPhoto(this.state.photo)
+    this.props.processForm(this.state.photo)
       .then(res => this.props.history.push(`/photos/${res.photo.id}`));
   }
 
   render() {
-    console.log(this.props);
-
     if (this.state.isUploading) {
       return <LoadingSpinner />;
     } else if (this.state.photo.img_url === '' && this.props.formType === 'new') {
