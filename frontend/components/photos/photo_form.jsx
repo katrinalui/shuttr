@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { Image, Transformation } from 'cloudinary-react';
 import LoadingSpinner from '../loading_spinner';
+import { BrowserRouter } from 'react-router-dom';
 
 const CLOUDINARY_UPLOAD_PRESET = "user_uploads";
 const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/shuttr/image/upload";
@@ -17,6 +18,7 @@ class PhotoForm extends React.Component {
     };
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.cancelForm = this.cancelForm.bind(this);
   }
 
   componentWillMount() {
@@ -71,6 +73,11 @@ class PhotoForm extends React.Component {
       .then(res => this.props.history.push(`/photos/${res.photo.id}`));
   }
 
+  cancelForm(e) {
+    e.preventDefault();
+    this.props.history.goBack();
+  }
+
   render() {
     if (this.state.isUploading) {
       return <LoadingSpinner />;
@@ -109,11 +116,15 @@ class PhotoForm extends React.Component {
                 value={this.state.photo.description}
               />
               <br />
-              <input
-                type="submit"
-                value={this.props.formType === 'new' ? "Upload" : "Edit" }
-              />
+              <div className="form-buttons">
+                <input
+                  type="submit"
+                  value={this.props.formType === 'new' ? "Upload" : "Edit" }
+                />
+              <button onClick={this.cancelForm}>Cancel</button>
+              </div>
             </form>
+            
           </div>
         </div>
       );
