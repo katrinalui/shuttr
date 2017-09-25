@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   let processForm = createPhoto;
 
-  if (ownProps.location.pathname.slice(1) === 'edit') {
+  if (ownProps.location.pathname.includes('edit')) {
     processForm = editPhoto;
   }
 
