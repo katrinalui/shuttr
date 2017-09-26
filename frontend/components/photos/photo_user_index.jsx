@@ -36,6 +36,8 @@ class PhotoUserIndex extends React.Component {
             </Image>
             <h2>{ photos[0].owner }</h2>
           </div>
+
+          <Link to={`/users/${photos[0].owner_id}/albums`}>Albums</Link>
         </div>
 
         <div className="album-photos">
