@@ -11,21 +11,45 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: white;
     background-size: cover;
     background-position: center;
+    box-sizing: border-box;
+    padding: 15px;
 
-    h1 {
-      font-size: 40px;
+    .album-edit-bar {
+      width: 100%;
+      float: right;
+
+      a {
+        float: right;
+      }
     }
 
-    p {
-      font-style: italic;
-    }
+    .album-text {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
 
-    h3 {
-      font-size: 16px;
+      .album-title-desc {
+        text-align: center;
+
+        h1 {
+          font-size: 40px;
+          margin-top: 30px;
+        }
+
+        p {
+          font-style: italic;
+        }
+      }
+
+      h3 {
+        font-size: 16px;
+      }
     }
   }
 }

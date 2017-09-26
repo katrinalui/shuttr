@@ -26,20 +26,20 @@ class AlbumShow extends React.Component {
 
     if (!album) { return <div></div>; }
 
-    let editButton = <div></div>;
-
     const getParent = () => {
       return document.querySelector('.body');
     };
 
+    let editButton = <div></div>;
+
     if (currentUser.id === album.owner_id) {
       editButton = (
         <div className="album-edit-bar">
-          <button id="edit-menu-button" onClick={this.openModal}>
-            <i className="fa fa-pencil" aria-hidden="true"></i>
-
-              // link to album form here
-          </button>
+          <Link to={`/albums/${album.id}/edit`}>
+            <button id="edit-menu-button" onClick={this.openModal}>
+              <i className="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </Link>
         </div>
       );
     }
@@ -48,17 +48,31 @@ class AlbumShow extends React.Component {
       <PhotoItem key={i} photo={photo} />
     ));
 
-    const divStyle = {
+    let divStyle = {
       backgroundImage: `url(http://res.cloudinary.com/shuttr/image/upload/v1506372551/${album.cover_photo_url})`
     };
+
+    if (!album.cover_photo_url) {
+      divStyle = {
+        backgroundColor: 'gray'
+      };
+    }
 
     return (
       <div className="album-show">
         <div className="album-info" style={divStyle}>
           {editButton}
-          <h1>{album.title}</h1>
-          <p>{album.description}</p>
-          <h3>By: {album.owner_username}</h3>
+          <div className="album-text">
+            <div className="album-title-desc">
+              <h1>{album.title}</h1>
+              <p>{album.description}</p>
+            </div>
+            <h3>
+              By: <Link to={`/users/${album.owner_id}/photos`}>
+              {album.owner_username}
+              </Link>
+            </h3>
+          </div>
         </div>
         <div className="album-photos">
           { photoItems }
