@@ -23,7 +23,7 @@ const PhotoReducer = (state = {}, action) => {
         acc[photo.id] = photo;
         return acc;
       }, {});
-      return Object.assign({}, state, photos);
+      return Object.assign({}, photos);
     default:
       return state;
   }

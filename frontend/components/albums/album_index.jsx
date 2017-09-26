@@ -36,7 +36,7 @@ class AlbumIndex extends React.Component {
             <h2>{ this.props.albums[0].owner_username }</h2>
           </div>
 
-          <Link to="/albums/new">Add Album</Link>
+          <Link to="/albums/new">New Album</Link>
         </div>
 
         <div className="albums-index">
