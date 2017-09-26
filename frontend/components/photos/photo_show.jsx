@@ -3,6 +3,7 @@ import LoadingSpinner from '../loading_spinner';
 import PhotoEditMenu from './photo_edit_menu';
 import { Image, Transformation } from 'cloudinary-react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -91,14 +92,14 @@ class PhotoShow extends React.Component {
         </div>
         <div className="photo-info">
           <div className="photo-info-left">
-            <a>
+            <Link to={`/users/${photo.owner_id}/photos`}>
               <Image publicId={photo.owner_avatar}
                 cloudName="shuttr"
                 className="avatar"
                 >
                 <Transformation width="100" height="100" crop="thumb" />
               </Image>
-            </a>
+            </Link>
             <span className="photo-text">
               <h2>{ photo.title }</h2>
               <p>{ photo.description }</p>
