@@ -32,10 +32,10 @@
 
 .album-photos {
   width: 100%;
+  margin-top: 5px;
   position: relative;
   column-count: 1;
-  column-gap: 2em;
-  margin: 5px;
+  column-gap: 5px;
 
   .image-container {
     max-width: 100%;
