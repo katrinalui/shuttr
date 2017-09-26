@@ -1,23 +1,40 @@
 .user-albums-container {
   margin-top: 40px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.album-index-user {
-  display: flex;
-  flex-direction: row;
+.album-index-bar {
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 
   img {
     border-radius: 100%;
     width: 100px;
     height: 100px;
+    margin-left: 50px;
   }
 
   h2 {
     font-size: 30px;
     color: gray;
     margin-left: 20px;
+  }
+
+  .album-owner {
+    display: flex;
+    align-items: center;
+    float: left;
+  }
+
+  a {
+    float: right;
+    margin-right: 50px;
   }
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import AlbumIndexItem from './album_index_item';
 import LoadingSpinner from '../loading_spinner';
 import { Image, Transformation } from 'cloudinary-react';
+import { Link } from 'react-router-dom';
 
 class AlbumIndex extends React.Component {
   componentWillMount() {
@@ -27,11 +28,15 @@ class AlbumIndex extends React.Component {
 
     return (
       <div className="user-albums-container">
-        <div className="album-index-user">
-          <Image publicId={albums[0].owner_img_url} cloudName="shuttr" >
-            <Transformation width="100" height="100" crop="thumb" />
-          </Image>
-          <h2>{ this.props.albums[0].owner_username }</h2>
+        <div className="album-index-bar">
+          <div className="album-owner">
+            <Image publicId={albums[0].owner_img_url} cloudName="shuttr" >
+              <Transformation width="100" height="100" crop="thumb" />
+            </Image>
+            <h2>{ this.props.albums[0].owner_username }</h2>
+          </div>
+
+          <Link to="/albums/new">Add Album</Link>
         </div>
 
         <div className="albums-index">
