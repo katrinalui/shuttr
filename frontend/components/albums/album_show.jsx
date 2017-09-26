@@ -1,8 +1,8 @@
 import React from 'react';
 import LoadingSpinner from '../loading_spinner';
+import PhotoItem from '../photos/photo_item';
 import { Image, Transformation } from 'cloudinary-react';
 import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
 
 class AlbumShow extends React.Component {
   componentWillMount() {
@@ -37,33 +37,15 @@ class AlbumShow extends React.Component {
         <div className="album-edit-bar">
           <button id="edit-menu-button" onClick={this.openModal}>
             <i className="fa fa-pencil" aria-hidden="true"></i>
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              contentLabel="Modal"
-              onRequestClose={this.closeModal}
-              parentSelector={getParent}
-              className={{
-                base: 'edit-menu-modal'
-              }}
-              overlayClassName={{
-                base: 'edit-menu-overlay'
-              }}
-              >
-              // render album form here
-            </Modal>
+
+              // link to album form here
           </button>
         </div>
       );
     }
 
-    const photoItems = photos.map(photo => (
-      <div className="image-container">
-        <Link to={`/photos/${photo.id}`}>
-          <Image publicId={photo.img_url} cloudName="shuttr" >
-            <Transformation width="600" crop="scale" />
-          </Image>
-        </Link>
-      </div>
+    const photoItems = photos.map((photo, i) => (
+      <PhotoItem key={i} photo={photo} />
     ));
 
     const divStyle = {

@@ -1,0 +1,15 @@
+import { connect } from 'react-redux';
+import PhotoUserIndex from './photo_user_index';
+import { requestUserPhotos } from '../../actions/photo_actions';
+import { selectAllPhotos } from '../../reducers/selectors';
+
+const mapStateToProps = (state, ownProps) => ({
+  photos: selectAllPhotos(state),
+  loading: state.ui.loading
+});
+
+const mapDispatchToProps = dispatch => ({
+  requestUserPhotos: (userId) => dispatch(requestUserPhotos(userId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoUserIndex);

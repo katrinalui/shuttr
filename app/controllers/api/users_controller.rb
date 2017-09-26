@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
 
-    if @user && @user.update_attributes(user_params)
+    if @user == current_user && @user.update_attributes(user_params)
       render :show
     elsif !@user
       render json: ['User not found'], status: 400

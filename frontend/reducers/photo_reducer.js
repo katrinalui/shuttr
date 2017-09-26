@@ -11,7 +11,7 @@ const PhotoReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_PHOTOS:
-      return Object.assign({}, state, action.photos);
+      return Object.assign({}, action.photos);
     case RECEIVE_PHOTO:
       stateCopy[action.photo.id] = action.photo;
       return stateCopy;

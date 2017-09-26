@@ -6,7 +6,9 @@ const PhotoIndexItem = ({photo}) => {
   return (
     <div className="photo-index-item">
       <div className="photo-index-item-desc">
-        <a className="username">{photo.owner}</a>
+        <Link to={`/users/${photo.owner_id}/photos`}
+          className="username">{photo.owner}
+        </Link>
         &nbsp;&nbsp;
         <span className="posted-time-ago">{photo.posted_time_ago}</span>
       </div>
