@@ -6,16 +6,11 @@ import {
   patchPhoto,
   deletePhoto
 } from '../util/photo_api_util';
-import { receiveErrors, clearErrors } from './error_actions';
+import { startLoading } from './loading_actions';
 
 export const RECEIVE_PHOTOS = "RECEIVE_PHOTOS";
 export const RECEIVE_PHOTO = "RECEIVE_PHOTO";
 export const REMOVE_PHOTO = "REMOVE_PHOTO";
-export const START_LOADING_PHOTOS = "START_LOADING_PHOTOS";
-
-export const startLoadingPhotos = () => ({
-  type: START_LOADING_PHOTOS
-});
 
 export const receivePhotos = photos => ({
   type: RECEIVE_PHOTOS,
@@ -33,17 +28,17 @@ export const removePhoto = photo => ({
 });
 
 export const requestAllPhotos = () => dispatch => {
-  dispatch(startLoadingPhotos());
+  dispatch(startLoading());
   return getPhotos().then(photos => dispatch(receivePhotos(photos)));
 };
 
 export const requestUserPhotos = userId => dispatch => {
-  dispatch(startLoadingPhotos());
+  dispatch(startLoading());
   return getUserPhotos(userId).then(photos => dispatch(receivePhotos(photos)));
 };
 
 export const requestPhoto = photoId => dispatch => {
-  dispatch(startLoadingPhotos());
+  dispatch(startLoading());
   return getPhoto(photoId).then(photo => dispatch(receivePhoto(photo)));
 };
 

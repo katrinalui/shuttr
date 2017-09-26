@@ -6,6 +6,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import PhotoIndexContainer from './photos/photo_index_container';
 import PhotoShowContainer from './photos/photo_show_container';
 import PhotoFormContainer from './photos/photo_form_container';
+import AlbumIndexContainer from './albums/album_index_container';
 
 const App = () => (
   <div>
@@ -20,6 +21,8 @@ const App = () => (
         <ProtectedRoute path='/photos/upload' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId/edit' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
+        <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
+        <ProtectedRoute path='/users/:userId/albums' component={AlbumIndexContainer}/>
       </Switch>
     </main>
   </div>

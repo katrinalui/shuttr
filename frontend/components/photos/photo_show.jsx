@@ -45,13 +45,13 @@ class PhotoShow extends React.Component {
       );
     }
 
-    if (!photo) { return null; }
+    if (!photo) { return <div></div>; }
 
     const getParent = () => {
       return document.querySelector('#edit-menu-button');
     };
 
-    let editButton = null;
+    let editButton = <div></div>;
 
     if (currentUser.id === photo.owner_id) {
       editButton = (

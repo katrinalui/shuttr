@@ -3,6 +3,7 @@ import {
   RECEIVE_PHOTO,
   REMOVE_PHOTO
 } from '../actions/photo_actions';
+import { RECEIVE_ALBUM } from '../actions/album_actions';
 
 const PhotoReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -17,6 +18,12 @@ const PhotoReducer = (state = {}, action) => {
     case REMOVE_PHOTO:
       delete stateCopy[action.photo.id];
       return stateCopy;
+    case RECEIVE_ALBUM:
+      const photos = action.payload.photos.reduce((acc, photo) => {
+        acc[photo.id] = photo;
+        return acc;
+      }, {});
+      return Object.assign({}, state, photos);
     default:
       return state;
   }

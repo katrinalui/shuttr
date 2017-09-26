@@ -1,7 +1,3 @@
-const CLOUDINARY_UPLOAD_PRESET = "user_uploads";
-const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/shuttr/image/upload";
-const CLOUDINARY_CLOUD_NAME = "shuttr";
-
 export const getPhotos = () => (
   $.ajax({
     url: 'api/photos'

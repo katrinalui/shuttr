@@ -21,14 +21,16 @@ class Album < ApplicationRecord
   has_many :album_photos,
            primary_key: :id,
            foreign_key: :album_id,
-           class_name: :AlbumPhoto
+           class_name: :AlbumPhoto,
+           dependent: :destroy
 
   has_many :photos,
            through: :album_photos,
            source: :photo
 
   def cover_photo_url
-    self.photos[0].img_url
+    first_photo = self.photos[0]
+    first_photo ? first_photo.img_url : nil
   end
 
   def calculate_photos

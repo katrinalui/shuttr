@@ -1,0 +1,45 @@
+.user-albums-container {
+  margin-top: 40px;
+}
+
+.album-index-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40px;
+
+  img {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+  }
+
+  h2 {
+    font-size: 30px;
+    color: gray;
+    margin-left: 20px;
+  }
+}
+
+.album-index-item {
+  background-size: cover;
+  width: 250px;
+  height: 270px;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+  padding: 15px 25px;
+
+  .album-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: white;
+  }
+
+  .album-photo-count {
+    font-size: 14px;
+  }
+}
