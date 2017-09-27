@@ -1,25 +1,31 @@
 import React from 'react';
+import Select from 'react-select';
 
 class AlbumSelectForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.photo;
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
+  handleChange(val) {
 
   }
 
   render() {
-    const albumLinks = this.props.albums.map(album => (
+    options = this.props.albums
+
+    return (
       <div>
-        <label>
-          { album.title }
-          <input type="checkbox" onChange={this.handleChange} id={ album.id } />
-          {this.props.name}
-        </label>
+        <Select
+          name="form-field-name"
+          value="one"
+          options={options}
+          onChange={this.handleChange}
+          multi={true}
+          />
       </div>
-    ));
+    );
   }
 }
 

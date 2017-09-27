@@ -41,7 +41,12 @@ class NavBar extends React.Component {
             className="logo"
           />
         </Link>
+
         <div className="user-buttons">
+          <Link to="/photos/upload">
+            <i className="fa fa-cloud-upload" aria-hidden="true"></i>
+          </Link>
+
           <a id="nav-bar-avatar" onClick={this.toggleModal}>
             <Image publicId={currentUser.img_url}
               cloudName="shuttr"
@@ -68,11 +73,6 @@ class NavBar extends React.Component {
               logout={this.props.logout}
             />
           </Modal>
-
-          <Link to="/photos/upload">
-            <i className="fa fa-cloud-upload" aria-hidden="true"></i>
-          </Link>
-          <button onClick={logout}>Logout</button>
         </div>
       </div>
     );
