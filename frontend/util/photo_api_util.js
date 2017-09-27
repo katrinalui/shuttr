@@ -38,3 +38,11 @@ export const deletePhoto = (photoId) => (
     method: 'DELETE'
   })
 );
+
+export const editAlbumMembership = (photo) => (
+  $.ajax({
+    url: `api/photos/${photo.id}/edit_album_membership`,
+    method: 'POST',
+    data: { albums: photo.albumIds }
+  })
+);

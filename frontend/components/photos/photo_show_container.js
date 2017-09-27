@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import PhotoShow from './photo_show';
 import { requestPhoto, destroyPhoto } from '../../actions/photo_actions';
+import { selectAllUserAlbums } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => ({
   photo: state.entities.photos[ownProps.match.params.photoId],
+  albums: selectAllUserAlbums(state),
   loading: state.ui.loading,
   currentUser: state.session.currentUser
 });

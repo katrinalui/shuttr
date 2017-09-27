@@ -20,7 +20,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     loading: state.ui.loading,
     currentUser: state.session.currentUser,
-    albums: selectAllUserAlbums(state),
     photo,
     formType
   };

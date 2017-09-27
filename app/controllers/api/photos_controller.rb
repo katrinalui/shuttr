@@ -10,7 +10,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.includes(:owner).where(id: params[:id]).first
+    @photo = Photo.includes(:owner, :albums).where(id: params[:id]).first
     if @photo
       render :show
     else
@@ -41,6 +41,12 @@ class Api::PhotosController < ApplicationController
   def destroy
     @photo = current_user.photos.find_by(id: params[:id])
     @photo.destroy
+    render :show
+  end
+
+  def edit_album_membership
+    @photo = current_user.photos.find_by(id: params[:id])
+    @photo.album_ids = params[:albums]
     render :show
   end
 

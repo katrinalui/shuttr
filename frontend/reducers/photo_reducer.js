@@ -13,8 +13,9 @@ const PhotoReducer = (state = {}, action) => {
     case RECEIVE_PHOTOS:
       return Object.assign({}, action.photos);
     case RECEIVE_PHOTO:
-      stateCopy[action.photo.id] = action.photo;
-      return stateCopy;
+      const photo = action.payload.photo;
+      photo.albumIds = action.payload.albums.map(album => album.id);
+      return Object.assign({}, state, { [photo.id]: photo });
     case REMOVE_PHOTO:
       delete stateCopy[action.photo.id];
       return stateCopy;

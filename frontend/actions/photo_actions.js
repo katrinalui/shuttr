@@ -17,9 +17,9 @@ export const receivePhotos = photos => ({
   photos
 });
 
-export const receivePhoto = photo => ({
+export const receivePhoto = payload => ({
   type: RECEIVE_PHOTO,
-  photo
+  payload
 });
 
 export const removePhoto = photo => ({
