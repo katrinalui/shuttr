@@ -21,6 +21,8 @@ class PhotoForm extends React.Component {
   }
 
   componentWillMount() {
+    this.props.requestUserAlbums(this.props.currentUser.id);
+
     if (this.props.formType === 'edit') {
       this.props.requestPhoto(this.props.match.params.photoId);
     }
@@ -93,6 +95,10 @@ class PhotoForm extends React.Component {
         </Dropzone>
       );
     } else {
+      const albums = this.props.albums.map(album => (
+        <option value={album.id}>{album.title}</option>
+      ));
+
       return (
         <div className="photo-form-container">
           { this.state.photo.img_url === '' ? null :
@@ -117,6 +123,10 @@ class PhotoForm extends React.Component {
                 value={this.state.photo.description}
               />
               <br />
+              <select name="user-albums-choices">
+                <option disabled selected>Select an album (optional)</option>
+                {albums}
+              </select>
               <div className="form-buttons">
                 <input
                   type="submit"

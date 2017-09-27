@@ -38,6 +38,13 @@
   }
 }
 
+.albums-index {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .album-index-item {
   background-size: cover;
   width: 250px;

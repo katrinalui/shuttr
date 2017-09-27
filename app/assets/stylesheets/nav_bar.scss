@@ -29,9 +29,49 @@
     width: 40px;
     height: 40px;
     margin-right: 10px;
+    border-radius: 100%;
   }
+}
+
+#nav-bar-avatar {
+  position: relative;
 }
 
 i.fa.fa-cloud-upload {
   font-size: 26px;
+}
+
+.user-menu-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.user-menu-modal {
+  position: absolute;
+  padding: 10px;
+  top: 100%;
+  left: 70%;
+  transform: translate(-100%, 2%);
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid darkgrey;
+}
+
+.user-menu {
+  height: 100%;
+  padding: 0px 10px;
+}
+
+.user-menu-links {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  a {
+    color: gray;
+  }
 }

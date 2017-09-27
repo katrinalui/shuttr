@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 import { createPhoto, editPhoto, requestPhoto } from '../../actions/photo_actions';
+import { requestUserAlbums } from '../../actions/album_actions';
+import { selectAllUserAlbums } from '../../reducers/selectors';
 import PhotoForm from './photo_form';
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,6 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     loading: state.ui.loading,
+    currentUser: state.session.currentUser,
+    albums: selectAllUserAlbums(state),
     photo,
     formType
   };
@@ -31,7 +35,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     processForm: photo => dispatch(processForm(photo)),
-    requestPhoto: photoId => dispatch(requestPhoto(photoId))
+    requestPhoto: photoId => dispatch(requestPhoto(photoId)),
+    requestUserAlbums: (userId) => dispatch(requestUserAlbums(userId))
   };
 };
 
