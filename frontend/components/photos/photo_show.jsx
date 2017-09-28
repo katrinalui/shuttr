@@ -42,8 +42,9 @@ class PhotoShow extends React.Component {
   }
 
   render() {
-    console.log('Props in photo show', this.props);
-    const { photo, albums, loading, currentUser } = this.props;
+    console.log(this.props);
+
+    const { photo, albums, currentUserAlbums, loading, currentUser } = this.props;
 
     if (loading) {
       return (
@@ -108,7 +109,7 @@ class PhotoShow extends React.Component {
             </button>
 
             <AlbumSelectForm
-              albums={albums}
+              albums={currentUserAlbums}
               albumIds={photo.albumIds}
               photoId={photo.id}
               editAlbumMembership={this.props.editAlbumMembership}
@@ -121,9 +122,16 @@ class PhotoShow extends React.Component {
 
     let albumListItems = [];
     let albumCount = 0;
-    if (photo.albumIds && albums.length > 0) {
+    if (photo.albumIds) {
       albumListItems = photo.albumIds.map(id => (
-        <Link key={id} to={`/albums/${id}`}>{albums[id].title}</Link>
+        <Link key={id} to={`/albums/${id}`}>
+          <div className="album-list-item">
+            <Image publicId={albums[id].cover_photo_url} cloudName="shuttr" >
+              <Transformation width="45" height="45" crop="thumb" />
+            </Image>
+            {albums[id].title}
+          </div>
+        </Link>
       ));
 
       albumCount = photo.albumIds.length;
@@ -166,11 +174,13 @@ class PhotoShow extends React.Component {
             Posted on { photo.post_date }
 
             <div className="photo-show-albums">
-              { albumHeader }
-              <ul>
+              <div className="photo-album-info">
+                { albumHeader }
+                { addAlbumLink }
+              </div>
+              <div className="album-links">
                 {albumListItems}
-              </ul>
-              { addAlbumLink }
+              </div>
             </div>
           </div>
 

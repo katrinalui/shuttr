@@ -45,7 +45,9 @@ class AlbumForm extends React.Component {
       return <LoadingSpinner />;
     } else {
       return (
-        <div className="photo-form-container">
+        <div className="album photo-form-container">
+          <h2>Create a new album</h2>
+
           <form className="photo-form" onSubmit={this.handleSubmit}>
             <input type="text"
               onChange={this.update("title")}

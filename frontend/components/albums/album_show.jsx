@@ -61,17 +61,19 @@ class AlbumShow extends React.Component {
     return (
       <div className="album-show">
         <div className="album-info" style={divStyle}>
-          {editButton}
-          <div className="album-text">
-            <div className="album-title-desc">
-              <h1>{album.title}</h1>
-              <p>{album.description}</p>
+          <div className="album-info-overlay">
+            {editButton}
+            <div className="album-text">
+              <div className="album-title-desc">
+                <h1>{album.title}</h1>
+                <p>{album.description}</p>
+              </div>
+              <h3>
+                By: <Link to={`/users/${album.owner_id}/photos`}>
+                {album.owner_username}
+                </Link>
+              </h3>
             </div>
-            <h3>
-              By: <Link to={`/users/${album.owner_id}/photos`}>
-              {album.owner_username}
-              </Link>
-            </h3>
           </div>
         </div>
         <div className="album-photos">

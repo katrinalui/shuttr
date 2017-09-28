@@ -58,34 +58,35 @@
   .photo-info-left {
     float: left;
     display: flex;
-    width: 60%;
+    width: 55%;
+
+    .photo-info img {
+      width: 50px;
+      height: 50px;
+      margin: 10px 20px 0px 5px;
+    }
+
+    .photo-text {
+      width: 500px;
+      margin: 10px;
+    }
+
+    .photo-text h2 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
   }
 
   .photo-info-right {
     float: right;
     display: flex;
     justify-content: flex-end;
-    width: 40%;
-    align-items: center;
+    width: 45%;
+    align-items: flex-end;
     font-size: 14px;
     flex-direction: column;
+    margin-top: 15px;
   }
-}
-
-.photo-info img {
-  width: 50px;
-  height: 50px;
-  margin: 10px 20px 0px 5px;
-}
-
-.photo-text {
-  width: 500px;
-  margin-top: 10px;
-}
-
-.photo-text h2 {
-  font-size: 22px;
-  margin-bottom: 5px;
 }
 
 @media only screen and (max-width : 450px) {
@@ -210,22 +211,50 @@
 }
 
 .photo-show-albums {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
+  width: 100%;
 
-    h3 {
-      font-size: 14px;
-    }
+  h3 {
+    font-size: 14px;
+  }
 
-    ul {
-      display: flex;
-      flex-direction: column;
-    }
+  .album-links {
+    width: 100%;
+  }
 
-    a {
-      font-size: 14px;
-    }
+  a {
+    font-size: 12px;
+  }
+}
+
+.photo-album-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: baseline;
+}
+
+.album-list-item {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  float: left;
+  margin-bottom: 10px;
+  font-size: 14px;
+
+  img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
+}
+
+.album-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #424242;
 }
 
 .album-select-overlay {
@@ -242,13 +271,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
   width: 300px;
-  height: 120px;
+  height: 160px;
+  border: 1px solid #c1c1c1;
 
   button {
     float: right;
     color: #424242;
+    text-transform: uppercase;
+  }
+
+  button:hover {
+    color: #c1c1c1;
   }
 }
 
@@ -261,6 +296,10 @@
 
   h3 {
     font-size: 14px;
+  }
+
+  a {
+    font-size: 12px;
   }
 }
 
@@ -279,7 +318,7 @@
 }
 
 .album-select-submit {
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   justify-content: flex-end;
 }
