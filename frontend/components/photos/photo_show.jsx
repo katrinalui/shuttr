@@ -79,7 +79,6 @@ class PhotoShow extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { photo, albums, currentUserAlbums, loading, currentUser } = this.props;
 
     if (loading) {
@@ -88,7 +87,7 @@ class PhotoShow extends React.Component {
       );
     }
 
-    if (!photo || !photo.post_date) { return <div></div>; }
+    if (!photo || !photo.post_date || !photo.albumIds) { return <div></div>; }
 
     let editButton = <div></div>;
 
@@ -138,12 +137,12 @@ class PhotoShow extends React.Component {
 
     let albumListItems = [];
     let albumCount = 0;
-    if (photo.albumIds) {
+    if (photo.albumIds.length > 0) {
       albumListItems = photo.albumIds.map(id => (
         <Link key={id} to={`/albums/${id}`}>
           <div className="album-list-item">
             <Image publicId={albums[id].cover_photo_url} cloudName="shuttr" >
-              <Transformation width="45" height="45" crop="thumb" />
+              <Transformation width="100" height="100" crop="thumb" />
             </Image>
             {albums[id].title}
           </div>
