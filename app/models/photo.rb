@@ -32,6 +32,11 @@ class Photo < ApplicationRecord
            through: :album_photos,
            source: :album
 
+  has_many :comments,
+           primary_key: :id,
+           foreign_key: :photo_id,
+           class_name: :Comment
+
   def posted_time_ago
     time_ago_in_words(self.created_at) + " ago"
   end

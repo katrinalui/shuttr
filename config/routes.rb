@@ -8,10 +8,12 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :photos, only: [:index, :create, :show, :update, :destroy] do
+      resources :comments, only: [:create]
       member do
         post 'edit_album_membership'
       end
     end
     resources :albums, only: [:create, :show, :update, :destroy]
+    resources :comments, only: [:show, :update, :destroy]
   end
 end
