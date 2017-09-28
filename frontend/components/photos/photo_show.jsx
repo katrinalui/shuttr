@@ -13,7 +13,8 @@ class PhotoShow extends React.Component {
       editModalIsOpen: false,
       albumModalIsOpen: false
     };
-    this.toggleEditModal = this.toggleEditModal.bind(this);
+    this.openEditModal = this.openEditModal.bind(this);
+    this.closeEditModal = this.closeEditModal.bind(this);
     this.toggleAlbumModal = this.toggleAlbumModal.bind(this);
   }
 
@@ -29,9 +30,15 @@ class PhotoShow extends React.Component {
     }
   }
 
-  toggleEditModal() {
+  openEditModal() {
     this.setState({
-      editModalIsOpen: !this.state.editModalIsOpen
+      editModalIsOpen: true
+    });
+  }
+
+  closeEditModal() {
+    this.setState({
+      editModalIsOpen: false
     });
   }
 
@@ -41,9 +48,38 @@ class PhotoShow extends React.Component {
     });
   }
 
+  editModal() {
+    const { photo } = this.props;
+
+    const getEditParent = () => {
+      return document.querySelector('#edit-menu-button');
+    };
+
+    return (
+      <Modal
+        isOpen={this.state.editModalIsOpen}
+        contentLabel="Edit Modal"
+        parentSelector={getEditParent}
+        className={{
+          base: 'edit-menu-modal'
+        }}
+        overlayClassName={{
+          base: 'edit-menu-overlay'
+        }}
+        >
+        <button onClick={this.closeEditModal}>X</button>
+
+        <PhotoEditMenu
+          photoId={photo.id}
+          destroyPhoto={this.props.destroyPhoto}
+          history={this.props.history}
+          />
+      </Modal>
+    );
+  }
+
   render() {
     console.log(this.props);
-
     const { photo, albums, currentUserAlbums, loading, currentUser } = this.props;
 
     if (loading) {
@@ -52,37 +88,15 @@ class PhotoShow extends React.Component {
       );
     }
 
-    if (!photo) { return <div></div>; }
-
-    const getEditParent = () => {
-      return document.querySelector('#edit-menu-button');
-    };
+    if (!photo || !photo.post_date) { return <div></div>; }
 
     let editButton = <div></div>;
 
     if (currentUser.id === photo.owner_id) {
       editButton = (
         <div className="photo-edit-bar">
-          <button id="edit-menu-button" onClick={this.toggleEditModal}>
+          <button id="edit-menu-button" onClick={this.openEditModal}>
             <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
-            <Modal
-              isOpen={this.state.editModalIsOpen}
-              contentLabel="Modal"
-              onRequestClose={this.toggleEditModal}
-              parentSelector={getEditParent}
-              className={{
-                base: 'edit-menu-modal'
-              }}
-              overlayClassName={{
-                base: 'edit-menu-overlay'
-              }}
-              >
-              <PhotoEditMenu
-                photoId={photo.id}
-                destroyPhoto={this.props.destroyPhoto}
-                history={this.props.history}
-                />
-            </Modal>
           </button>
         </div>
       );
@@ -92,10 +106,12 @@ class PhotoShow extends React.Component {
 
     if (currentUser.id === photo.owner_id) {
       addAlbumLink = (
-        <a onClick={this.toggleAlbumModal}>Add to album
+        <div>
+          <a onClick={this.toggleAlbumModal}>Add to album</a>
+
           <Modal
             isOpen={this.state.albumModalIsOpen}
-            contentLabel="Modal"
+            contentLabel="Album Modal"
             onRequestClose={this.toggleAlbumModal}
             className={{
               base: 'album-select-modal'
@@ -116,7 +132,7 @@ class PhotoShow extends React.Component {
               toggleAlbumModal={this.toggleAlbumModal}
               />
           </Modal>
-        </a>
+        </div>
       );
     }
 
@@ -141,8 +157,10 @@ class PhotoShow extends React.Component {
 
     if (albumCount === 1) {
       albumHeader = <h3>{`This photo is in 1 album`}</h3>;
-    } else if (albumCount === 0) {
+    } else if (albumCount === 0 && currentUser.id === photo.owner_id) {
       albumHeader = <h3>This photo is currently not in any albums</h3>;
+    } else if (albumCount === 0 && currentUser.id !== photo.owner_id) {
+      albumHeader = <div></div>;
     }
 
     return (
@@ -152,7 +170,9 @@ class PhotoShow extends React.Component {
             <Transformation width="1000" crop="scale" />
           </Image>
           { editButton }
+
         </div>
+        { this.editModal() }
 
         <div className="photo-info">
           <div className="photo-info-left">

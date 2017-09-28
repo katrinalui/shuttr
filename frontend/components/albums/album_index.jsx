@@ -18,8 +18,7 @@ class AlbumIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    const { albums, loading, user } = this.props;
+    const { albums, loading, user, currentUser } = this.props;
 
     if (loading) {
       return (
@@ -36,6 +35,11 @@ class AlbumIndex extends React.Component {
       );
     }
 
+    let newAlbumLink = <div></div>;
+    if (currentUser.id === user.id) {
+      newAlbumLink = <Link to="/albums/new">New Album</Link>;
+    }
+
     return (
       <div className="user-albums-container">
         <div className="album-index-bar">
@@ -46,7 +50,7 @@ class AlbumIndex extends React.Component {
             <h2>{ user.username }</h2>
           </div>
 
-          <Link to="/albums/new">New Album</Link>
+          { newAlbumLink }
         </div>
         <div className="albums-index">
           { albumIndex }

@@ -7,39 +7,32 @@ class PhotoEditMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false,
-      editModalIsOpen: false
+      deleteModalIsOpen: false
     };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.openEditModal = this.openEditModal.bind(this);
-    this.closeEditModal = this.closeEditModal.bind(this);
+    this.toggleDeleteModal = this.toggleDeleteModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    // this.openEditModal = this.openEditModal.bind(this);
+    // this.closeEditModal = this.closeEditModal.bind(this);
   }
 
-  openModal() {
-    this.setState({
-      modalIsOpen: true
-    });
+  toggleDeleteModal(e) {
+    e.preventDefault();
+    this.setState(prevState => ({
+      deleteModalIsOpen: !prevState.deleteModalIsOpen
+    }));
   }
 
-  closeModal() {
-    this.setState({
-      modalIsOpen: false
-    });
-  }
-
-  openEditModal() {
-    this.setState({
-      editModalIsOpen: true
-    });
-  }
-
-  closeEditModal() {
-    this.setState({
-      editModalIsOpen: false
-    });
-  }
+  // openEditModal() {
+  //   this.setState({
+  //     editModalIsOpen: true
+  //   });
+  // }
+  //
+  // closeEditModal() {
+  //   this.setState({
+  //     editModalIsOpen: false
+  //   });
+  // }
 
   handleDelete() {
     this.props.destroyPhoto(this.props.photoId)
@@ -54,13 +47,11 @@ class PhotoEditMenu extends React.Component {
     return (
       <div className="photo-edit-menu">
         <Link to={`/photos/${this.props.photoId}/edit`}>Edit</Link>
-        <a onClick={this.openModal}>Delete</a>
-
-
+        <a onClick={this.toggleDeleteModal}>Delete</a>
         <Modal
-          isOpen={this.state.modalIsOpen}
-          contentLabel="Modal"
-          onRequestClose={this.closeModal}
+          isOpen={this.state.deleteModalIsOpen}
+          contentLabel="Delete Modal"
+          onRequestClose={this.toggleDeleteModal}
           parentSelector={getParent}
           className={{
             base: 'delete-menu-modal'
@@ -68,10 +59,10 @@ class PhotoEditMenu extends React.Component {
           overlayClassName={{
             base: 'delete-menu-overlay'
           }}>
-
+          
           <p>Are you sure you want to delete this photo?</p>
           <div className="delete-buttons">
-            <button onClick={this.closeModal}>Cancel</button>
+            <button onClick={this.toggleDeleteModal}>Cancel</button>
             <button
               onClick={this.handleDelete}
               className="delete-button">
@@ -79,6 +70,7 @@ class PhotoEditMenu extends React.Component {
             </button>
           </div>
         </Modal>
+
       </div>
     );
   }

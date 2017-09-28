@@ -40,6 +40,7 @@
 .photo-edit-menu {
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
 
   a {
     margin-bottom: 10px;
@@ -139,6 +140,12 @@
   width: 140px;
   height: 50px;
   border-radius: 3px;
+
+  button {
+    color: grey;
+    font-size: 10px;
+    float: right;
+  }
 }
 
 .edit-form-modal {

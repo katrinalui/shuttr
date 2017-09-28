@@ -9,5 +9,8 @@ export const selectAllPhotos = state => {
 
 export const selectAllUserAlbums = (state, userId) => {
   let albums = values(state.entities.albums);
-  return albums.filter(album => album.owner_id === userId);
+  let userAlbums = albums.filter(album => album.owner_id === userId);
+  return userAlbums.sort((a, b) => (
+    new Date(b.created_at) - new Date(a.created_at)
+  ));
 };

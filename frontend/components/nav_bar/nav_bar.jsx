@@ -57,7 +57,7 @@ class NavBar extends React.Component {
 
           <Modal
             isOpen={this.state.modalIsOpen}
-            contentLabel="Modal"
+            contentLabel="NavBar Modal"
             onRequestClose={this.toggleModal}
             parentSelector={getParent}
             className={{
