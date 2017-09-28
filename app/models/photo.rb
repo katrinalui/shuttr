@@ -35,7 +35,8 @@ class Photo < ApplicationRecord
   has_many :comments,
            primary_key: :id,
            foreign_key: :photo_id,
-           class_name: :Comment
+           class_name: :Comment,
+           dependent: :destroy
 
   def posted_time_ago
     time_ago_in_words(self.created_at) + " ago"

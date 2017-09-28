@@ -14,3 +14,12 @@ export const selectAllUserAlbums = (state, userId) => {
     new Date(b.created_at) - new Date(a.created_at)
   ));
 };
+
+export const selectPhotoComments = (state, photoId) => {
+  return values(state.entities.comments);
+  // const comments = values(state.entities.comments);
+  // let photoComments = comments.filter(comment => comment.photo_id === photoId);
+  // return photoComments.sort((a, b) => (
+  //   new Date(a.created_at) - new Date(b.created_at)
+  // ));
+};

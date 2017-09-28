@@ -14,7 +14,7 @@ class Api::PhotosController < ApplicationController
     if @photo
       render :show
     else
-      render json: @photo.errors.full_messages, status: 404
+      render json: ['Photo does not exist'], status: 404
     end
   end
 

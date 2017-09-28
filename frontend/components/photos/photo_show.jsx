@@ -1,6 +1,8 @@
 import React from 'react';
 import LoadingSpinner from '../loading_spinner';
 import PhotoEditMenu from './photo_edit_menu';
+import CommentItem from '../comments/comment_item';
+import CommentForm from '../comments/comment_form';
 import AlbumSelectForm from '../albums/album_select_form';
 import { Image, Transformation } from 'cloudinary-react';
 import Modal from 'react-modal';
@@ -16,6 +18,7 @@ class PhotoShow extends React.Component {
     this.openEditModal = this.openEditModal.bind(this);
     this.closeEditModal = this.closeEditModal.bind(this);
     this.toggleAlbumModal = this.toggleAlbumModal.bind(this);
+    this.commentItems = this.commentItems.bind(this);
   }
 
   componentWillMount() {
@@ -75,6 +78,14 @@ class PhotoShow extends React.Component {
           history={this.props.history}
           />
       </Modal>
+    );
+  }
+
+  commentItems() {
+    return (
+      this.props.comments.map(comment => (
+        <CommentItem key={comment.id} comment={ comment } />
+      ))
     );
   }
 
@@ -175,18 +186,29 @@ class PhotoShow extends React.Component {
 
         <div className="photo-info">
           <div className="photo-info-left">
-            <Link to={`/users/${photo.owner_id}/photos`}>
-              <Image publicId={photo.owner_avatar}
-                cloudName="shuttr"
-                className="avatar"
-                >
-                <Transformation width="100" height="100" crop="thumb" />
-              </Image>
-            </Link>
-            <span className="photo-text">
-              <h2>{ photo.title }</h2>
-              <p>{ photo.description }</p>
-            </span>
+            <div className="photo-info-left information">
+              <Link to={`/users/${photo.owner_id}/photos`}>
+                <Image publicId={photo.owner_avatar}
+                  cloudName="shuttr"
+                  className="avatar"
+                  >
+                  <Transformation width="100" height="100" crop="thumb" />
+                </Image>
+              </Link>
+              <span className="photo-text">
+                <h2>{ photo.title }</h2>
+                <p>{ photo.description }</p>
+              </span>
+            </div>
+
+            <div className="comment-index-container">
+              { this.commentItems() }
+              <CommentForm
+                currentUser={currentUser}
+                createComment={this.props.createComment}
+                match={this.props.match}
+              />
+            </div>
           </div>
 
           <div className="photo-info-right">
