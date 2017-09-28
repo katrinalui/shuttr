@@ -9,6 +9,7 @@ class AlbumForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.cancelForm = this.cancelForm.bind(this);
+    this.onDelete = this.onDelete.bind(this);
   }
 
   componentWillMount() {
@@ -40,13 +41,31 @@ class AlbumForm extends React.Component {
     this.props.history.goBack();
   }
 
+  onDelete(e) {
+    e.preventDefault();
+    const { album } = this.props;
+    this.props.destroyAlbum(album.id)
+      .then(() => this.props.history.push(`/users/${album.owner_id}/albums`));
+  }
+
+  deleteButton() {
+    const { currentUser, album, formType } = this.props;
+    if (formType === "edit" && currentUser.id === album.owner_id) {
+      return <button className="delete-button" onClick={this.onDelete}>Delete</button>;
+    } else {
+      return <div></div>;
+    }
+  }
+
   render() {
+    const { formType } = this.props;
+
     if (this.props.loading) {
       return <LoadingSpinner />;
     } else {
       return (
         <div className="album photo-form-container">
-          <h2>Create a new album</h2>
+          <h2>{ formType === 'new' ? "Create a new album" : "Edit Album" }</h2>
 
           <form className="photo-form" onSubmit={this.handleSubmit}>
             <input type="text"
@@ -66,7 +85,8 @@ class AlbumForm extends React.Component {
                 type="submit"
                 value={this.props.formType === 'new' ? "Create" : "Edit" }
               />
-            <button onClick={this.cancelForm}>Cancel</button>
+            { this.deleteButton() }
+            <button className="cancel-button" onClick={this.cancelForm}>Cancel</button>
             </div>
           </form>
         </div>

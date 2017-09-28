@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AlbumForm from './album_form';
-import { createAlbum, editAlbum, requestAlbum } from '../../actions/album_actions';
+import { createAlbum, editAlbum, requestAlbum, destroyAlbum } from '../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let album = {
@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     loading: state.ui.loading,
     album,
-    formType
+    formType,
+    currentUser: state.session.currentUser
   };
 };
 
@@ -31,7 +32,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     processForm: album => dispatch(processForm(album)),
-    requestAlbum: albumId => dispatch(requestAlbum(albumId))
+    requestAlbum: albumId => dispatch(requestAlbum(albumId)),
+    destroyAlbum: albumId => dispatch(destroyAlbum(albumId))
   };
 };
 
