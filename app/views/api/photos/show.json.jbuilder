@@ -9,3 +9,9 @@ json.albums do
     json.cover_photo_url album.cover_photo_url
   end
 end
+
+json.comments do
+  json.array! @photo.comments do |comment|
+    json.partial! 'api/comments/comment', comment: comment
+  end
+end

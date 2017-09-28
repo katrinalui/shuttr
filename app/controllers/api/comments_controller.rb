@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.includes(:author).where(id: params[:id]).first
   end
 
   def update

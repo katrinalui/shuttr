@@ -10,7 +10,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.includes(:owner, :albums).where(id: params[:id]).first
+    @photo = Photo.includes(:owner, :albums, :comments).where(id: params[:id]).first
     if @photo
       render :show
     else
