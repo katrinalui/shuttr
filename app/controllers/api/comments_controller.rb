@@ -1,4 +1,8 @@
 class Api::CommentsController < ApplicationController
+  def index
+    @comments = Comment.where(photo_id: params[:photo_id]).includes(:author)
+  end
+
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.photo_id = params[:photo_id]
