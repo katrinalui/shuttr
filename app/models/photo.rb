@@ -13,6 +13,7 @@
 
 class Photo < ApplicationRecord
   validates :img_url, presence: true
+  default_scope { order('created_at DESC') }
 
   include ActionView::Helpers::DateHelper
 

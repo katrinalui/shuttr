@@ -7,7 +7,6 @@ class AlbumForm extends React.Component {
     this.state = {
       album: props.album
     };
-    // this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.cancelForm = this.cancelForm.bind(this);
   }
@@ -24,12 +23,6 @@ class AlbumForm extends React.Component {
     });
   }
 
-  // onImageDrop(files) {
-  //   this.setState({
-  //
-  //   });
-  // }
-
   update(field) {
     return e => this.setState({
       album: Object.assign({}, this.state.album, { [field]: e.currentTarget.value })
@@ -39,10 +32,7 @@ class AlbumForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state.album)
-      .then(res => {
-        console.log(res);
-        this.props.history.push(`/albums/${res.payload.album.id}`);
-      });
+      .then(res => this.props.history.push(`/albums/${res.payload.album.id}`));
   }
 
   cancelForm(e) {

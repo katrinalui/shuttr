@@ -53,22 +53,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px;
   width: 60%;
 
   .photo-info-left {
     float: left;
     display: flex;
-    width: 70%;
+    width: 60%;
   }
 
   .photo-info-right {
     float: right;
     display: flex;
     justify-content: flex-end;
-    width: 30%;
+    width: 40%;
     align-items: center;
     font-size: 14px;
+    flex-direction: column;
   }
 }
 
@@ -207,4 +207,79 @@
       color: white;
     }
   }
+}
+
+.photo-show-albums {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h3 {
+      font-size: 14px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      font-size: 14px;
+    }
+}
+
+.album-select-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.album-select-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 10px;
+  width: 300px;
+  height: 120px;
+
+  button {
+    float: right;
+    color: #424242;
+  }
+}
+
+.album-select-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  height: 100%;
+  justify-content: space-around;
+
+  h3 {
+    font-size: 14px;
+  }
+}
+
+.Select--multi .Select-value {
+  color: #424242;
+  background-color: rgba(193, 193, 193, 0.3);
+  border: 1px solid #c1c1c1;
+}
+
+.Select-value-label {
+  color: #424242;
+}
+
+.Select--multi .Select-value-icon {
+  border-right: 1px solid #c1c1c1;
+}
+
+.album-select-submit {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
 }

@@ -159,6 +159,116 @@ photo20 = Photo.create(
   owner_id: lifeatappacademy.id
 )
 
+photo21 = Photo.create(
+  img_url: "Shuttr/37022078140.jpg",
+  title: "AJ",
+  owner_id: lifeatappacademy.id
+)
+
+photo22 = Photo.create(
+  img_url: "Shuttr/37248654632.jpg",
+  title: "Michael",
+  description: "Chilling on Tehama.",
+  owner_id: lifeatappacademy.id
+)
+
+photo23 = Photo.create(
+  img_url: "Shuttr/36592700274.jpg",
+  title: "Jesse",
+  description: "Kill them with kindness.",
+  owner_id: lifeatappacademy.id
+)
+
+# Albums
+album1 = Album.create(
+  title: "They're pretty cool, I guess",
+  owner_id: lifeatappacademy.id
+)
+
+album2 = Album.create(
+  title: "Traveling Strangers",
+  description: "Strangers from my travels.",
+  owner_id: demo.id
+)
+
+album3 = Album.create(
+  title: "C'est Moi",
+  description: "It's me.",
+  owner_id: butterpup.id
+)
+
+album4 = Album.create(
+  title: "Seoul",
+  description: "The homeland.",
+  owner_id: chrisy.id
+)
+
+album5 = Album.create(
+  title: "Iceland",
+  owner_id: chrisy.id
+)
+
+# Add photos to albums
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo9.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo11.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo12.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo13.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo16.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo17.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo18.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo20.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo21.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo22.id
+)
+
+AlbumPhoto.create(
+  album_id: album1.id,
+  photo_id: photo23.id
+)
+
+AlbumPhoto.create(
+  album_id: album2.id,
+  photo_id: photo10.id
+)
+
 # Set creation date to random date
 Photo.all.each do |photo|
   photo.created_at = Date.today - rand(10).days

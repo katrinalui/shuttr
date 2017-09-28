@@ -13,14 +13,14 @@ const AlbumIndexItem = ({album}) => {
   }
 
   return (
-    <div className="album-index-item" style={divStyle}>
-      <Link to={`/albums/${album.id}`}>
+    <Link to={`/albums/${album.id}`}>
+      <div className="album-index-item" style={divStyle}>
         <div className="album-index-item-desc">
           <h2 className="album-title">{album.title}</h2>
           <h3 className="album-photo-count">{album.photo_count} photos</h3>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

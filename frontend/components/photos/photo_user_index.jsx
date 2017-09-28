@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 class PhotoUserIndex extends React.Component {
   componentWillMount() {
     this.props.requestUserPhotos(this.props.match.params.userId);
+    this.props.requestUser(this.props.match.params.userId);
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.userId !== newProps.match.params.userId) {
       this.props.requestUserPhotos(newProps.match.params.userId);
+      this.props.requestUser(newProps.match.params.userId);
     }
   }
 

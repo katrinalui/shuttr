@@ -19,11 +19,13 @@ class PhotoShow extends React.Component {
 
   componentWillMount() {
     this.props.requestPhoto(this.props.match.params.photoId);
+    this.props.requestUserAlbums(this.props.currentUser.id);
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.photoId !== newProps.match.params.photoId) {
       this.props.requestPhoto(newProps.match.params.photoId);
+      this.props.requestUserAlbums(this.props.currentUser.id);
     }
   }
 
@@ -40,6 +42,7 @@ class PhotoShow extends React.Component {
   }
 
   render() {
+    console.log('Props in photo show', this.props);
     const { photo, albums, loading, currentUser } = this.props;
 
     if (loading) {
@@ -100,24 +103,37 @@ class PhotoShow extends React.Component {
               base: 'album-select-overlay'
             }}
             >
+            <button onClick={this.toggleAlbumModal}>
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </button>
+
             <AlbumSelectForm
               albums={albums}
-              photo={photo}
+              albumIds={photo.albumIds}
+              photoId={photo.id}
+              editAlbumMembership={this.props.editAlbumMembership}
+              toggleAlbumModal={this.toggleAlbumModal}
               />
           </Modal>
         </a>
       );
     }
 
-    const albumListItems = albums.map(album => (
-      <Link key={album.id} to={`/albums/${album.id}`}>{album.title}</Link>
-    ));
+    let albumListItems = [];
+    let albumCount = 0;
+    if (photo.albumIds && albums.length > 0) {
+      albumListItems = photo.albumIds.map(id => (
+        <Link key={id} to={`/albums/${id}`}>{albums[id].title}</Link>
+      ));
 
-    let albumHeader = <h3>{`This photo is in ${albums.length} albums`}</h3>;
+      albumCount = photo.albumIds.length;
+    }
 
-    if (albums.length === 1) {
+    let albumHeader = <h3>{`This photo is in ${albumCount} albums`}</h3>;
+
+    if (albumCount === 1) {
       albumHeader = <h3>{`This photo is in 1 album`}</h3>;
-    } else if (albums.length === 0) {
+    } else if (albumCount === 0) {
       albumHeader = <h3>This photo is currently not in any albums</h3>;
     }
 
@@ -145,17 +161,19 @@ class PhotoShow extends React.Component {
               <p>{ photo.description }</p>
             </span>
           </div>
+
           <div className="photo-info-right">
             Posted on { photo.post_date }
-          </div>
-        </div>
 
-        <div className="photo-show-albums">
-          { albumHeader }
-          <ul>
-            {albumListItems}
-          </ul>
-          { addAlbumLink }
+            <div className="photo-show-albums">
+              { albumHeader }
+              <ul>
+                {albumListItems}
+              </ul>
+              { addAlbumLink }
+            </div>
+          </div>
+
         </div>
       </div>
     );

@@ -24,7 +24,7 @@ const AlbumReducer = (state = {}, action) => {
         acc[album.id] = album;
         return acc;
       }, {});
-      return Object.assign({}, albums);
+      return Object.assign({}, state, albums);
     default:
       return state;
   }

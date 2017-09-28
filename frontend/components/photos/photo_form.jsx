@@ -73,7 +73,7 @@ class PhotoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state.photo)
-      .then(res => this.props.history.push(`/photos/${res.photo.id}`));
+      .then(res => this.props.history.push(`/photos/${res.payload.photo.id}`));
   }
 
   cancelForm(e) {
