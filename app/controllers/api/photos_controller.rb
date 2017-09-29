@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
     @photos = if params[:user_id]
                 Photo.where(owner_id: params[:user_id]).includes(:owner)
               elsif params[:tag_id]
-                self.with_tags(params[:tag_id])
+                Photo.with_tags(params[:tag_id])
               else
                 Photo.all.includes(:owner)
               end

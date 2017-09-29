@@ -10,6 +10,7 @@ import PhotoUserIndexContainer from './photos/photo_user_index_container';
 import AlbumIndexContainer from './albums/album_index_container';
 import AlbumShowContainer from './albums/album_show_container';
 import AlbumFormContainer from './albums/album_form_container';
+import TaggedPhotoIndexContainer from './tags/tagged_photo_index_container';
 
 const App = () => (
   <div>
@@ -30,6 +31,7 @@ const App = () => (
         <ProtectedRoute path='/albums/new' component={AlbumFormContainer}/>
         <ProtectedRoute path='/albums/:albumId/edit' component={AlbumFormContainer}/>
         <ProtectedRoute path='/albums/:albumId' component={AlbumShowContainer}/>
+        <ProtectedRoute path='/tags/:tagId' component={TaggedPhotoIndexContainer}/>
       </Switch>
     </main>
   </div>
