@@ -24,17 +24,20 @@ class User < ApplicationRecord
   has_many :photos,
            primary_key: :id,
            foreign_key: :owner_id,
-           class_name: :Photo
+           class_name: :Photo,
+           dependent: :destroy
 
   has_many :albums,
            primary_key: :id,
            foreign_key: :owner_id,
-           class_name: :Album
+           class_name: :Album,
+           dependent: :destroy
 
   has_many :comments,
            primary_key: :id,
            foreign_key: :author_id,
-           class_name: :Comment
+           class_name: :Comment,
+           dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

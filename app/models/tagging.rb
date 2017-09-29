@@ -1,21 +1,21 @@
 # == Schema Information
 #
-# Table name: album_photos
+# Table name: taggings
 #
 #  id         :integer          not null, primary key
-#  album_id   :integer          not null
+#  tag_id     :integer          not null
 #  photo_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class AlbumPhoto < ApplicationRecord
-  validates :photo_id, uniqueness: { scope: :album_id, message: "Photo can be added to album only once" }
+class Tagging < ApplicationRecord
+  validates :tag_id, uniqueness: { scope: :photo_id, message: "Tag can be added to photo only once" }
 
-  belongs_to :album,
+  belongs_to :tag,
              primary_key: :id,
-             foreign_key: :album_id,
-             class_name: :Album
+             foreign_key: :tag_id,
+             class_name: :Tag
 
   belongs_to :photo,
              primary_key: :id,

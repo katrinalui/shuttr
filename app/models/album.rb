@@ -30,8 +30,8 @@ class Album < ApplicationRecord
            source: :photo
 
   def cover_photo_url
-    first_photo = self.photos[0]
-    first_photo ? first_photo.img_url : nil
+    first_photo_id = self.album_photos.order(:created_at)[0].photo_id
+    first_photo_id ? Photo.find_by(id: first_photo_id).img_url : nil
   end
 
   def calculate_photos
