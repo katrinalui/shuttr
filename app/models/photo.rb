@@ -44,6 +44,10 @@ class Photo < ApplicationRecord
            class_name: :Tagging,
            dependent: :destroy
 
+  has_many :tags,
+           through: :taggings,
+           source: :tag
+
   def posted_time_ago
     time_ago_in_words(self.created_at) + " ago"
   end

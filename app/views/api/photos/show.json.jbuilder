@@ -15,3 +15,9 @@ json.comments do
     json.partial! 'api/comments/comment', comment: comment
   end
 end
+
+json.tags do
+  json.array! @photo.tags do |tag|
+    json.partial! 'api/tags/tag', tag: tag
+  end
+end

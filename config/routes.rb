@@ -11,9 +11,11 @@ Rails.application.routes.draw do
       resources :comments, only: [:index, :create]
       member do
         post 'edit_album_membership'
+        post 'edit_taggings'
       end
     end
     resources :albums, only: [:create, :show, :update, :destroy]
     resources :comments, only: [:show, :update, :destroy]
+    resources :tags, only: [:create, :show]
   end
 end
