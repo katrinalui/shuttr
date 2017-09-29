@@ -1,6 +1,7 @@
 import {
   getPhotos,
   getUserPhotos,
+  getTagPhotos,
   getPhoto,
   postPhoto,
   patchPhoto,
@@ -38,6 +39,11 @@ export const requestAllPhotos = () => dispatch => {
 export const requestUserPhotos = userId => dispatch => {
   dispatch(startLoading());
   return getUserPhotos(userId).then(photos => dispatch(receivePhotos(photos)));
+};
+
+export const requestTagPhotos = tagId => dispatch => {
+  dispatch(startLoading());
+  return getTagPhotos(tagId).then(photos => dispatch(receivePhotos(photos)));
 };
 
 export const requestPhoto = photoId => dispatch => {

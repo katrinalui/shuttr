@@ -10,6 +10,12 @@ export const getUserPhotos = (userId) => (
   })
 );
 
+export const getTagPhotos = (tagId) => (
+  $.ajax({
+    url: `api/tags/${tagId}/photos`
+  })
+);
+
 export const getPhoto = (photoId) => (
   $.ajax({
     url: `api/photos/${photoId}`
@@ -48,7 +54,6 @@ export const postAlbumMembership = (photoId, albums) => (
 );
 
 export const postAddTag = (photoId, tag) => {
-  console.log("tag in ajax", tag);
   return $.ajax({
     url: `api/photos/${photoId}/add_tag`,
     method: 'POST',
