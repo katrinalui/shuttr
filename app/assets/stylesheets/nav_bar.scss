@@ -61,6 +61,36 @@ i.fa.fa-cloud-upload {
   border: 1px solid darkgrey;
 }
 
+// .arrow_box {
+// 	position: relative;
+// 	background: #FFFFFF;
+// 	border: 4px solid #darkgrey;
+// }
+
+.user-menu-modal:after, .user-menu-modal:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.user-menu-modal:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #FFFFFF;
+  border-width: 10px;
+	margin-left: -10px;
+}
+.user-menu-modal:before {
+	border-color: rgba(0, 0, 0, 0);
+	border-bottom-color: #darkgrey;
+  border-width: 15px;
+	margin-left: -11px;
+}
+
 .user-menu {
   height: 100%;
   padding: 0px 10px;
