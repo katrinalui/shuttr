@@ -46,3 +46,11 @@ export const postAlbumMembership = (photoId, albums) => (
     data: { albums }
   })
 );
+
+export const postTagging = (photoId, tags) => (
+  $.ajax({
+    url: `api/photos/${photoId}/edit_taggings`,
+    method: 'POST',
+    data: { tags }
+  })
+);
