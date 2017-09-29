@@ -4,6 +4,8 @@ import PhotoEditMenu from './photo_edit_menu';
 import CommentItem from '../comments/comment_item';
 import CommentForm from '../comments/comment_form';
 import AlbumSelectForm from '../albums/album_select_form';
+import TagItem from '../tags/tag_item';
+import TagForm from '../tags/tag_form';
 import { Image, Transformation } from 'cloudinary-react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
@@ -13,12 +15,14 @@ class PhotoShow extends React.Component {
     super(props);
     this.state = {
       editModalIsOpen: false,
-      albumModalIsOpen: false
+      albumModalIsOpen: false,
+      tagFormIsOpen: false
     };
     this.openEditModal = this.openEditModal.bind(this);
     this.closeEditModal = this.closeEditModal.bind(this);
     this.toggleAlbumModal = this.toggleAlbumModal.bind(this);
     this.commentItems = this.commentItems.bind(this);
+    this.openTagForm = this.openTagForm.bind(this);
   }
 
   componentWillMount() {
@@ -89,21 +93,71 @@ class PhotoShow extends React.Component {
   commentItems() {
     return (
       this.props.comments.map(comment => (
-        <CommentItem key={comment.id} comment={ comment } />
+        <CommentItem key={ comment.id } comment={ comment } />
       ))
     );
+  }
+
+  tagItems() {
+    const { tags } = this.props;
+
+    if (tags.length > 0) {
+      return (
+        tags.map(tag => (
+          <TagItem key={ tag.id } tag={ tag } removeTag={this.props.removeTag}/>
+        ))
+      );
+    }
+  }
+
+  tagsHeader() {
+    const { tags, currentUser, photo } = this.props;
+
+    if (currentUser.id === photo.owner_id || tags.length > 0) {
+      return (
+        <h3>Tags</h3>
+      );
+    }
+  }
+
+  tagAddButton() {
+    const { tags, currentUser, photo } = this.props;
+
+    if (currentUser.id === photo.owner_id) {
+      return (
+        <a onClick={this.openTagForm}>Add tags</a>
+      );
+    }
+  }
+
+  openTagForm(e) {
+    e.preventDefault();
+    this.setState({ tagFormIsOpen: true });
+  }
+
+  tagForm() {
+    const tags = this.props.tags.map(tag => (
+      { id: tag.id, text: tag.name }
+    ));
+
+    if (this.state.tagFormIsOpen) {
+      return (
+        <TagForm
+          photoId={this.props.photo.id}
+          addTag={this.props.addTag}
+        />
+      );
+    }
   }
 
   render() {
     const { photo, albums, currentUserAlbums, loading, currentUser } = this.props;
 
-    if (loading) {
+    if (loading || !photo || !photo.post_date || !photo.albumIds) {
       return (
         <LoadingSpinner />
       );
     }
-
-    if (!photo || !photo.post_date || !photo.albumIds) { return <div></div>; }
 
     let editButton = <div></div>;
 
@@ -154,16 +208,19 @@ class PhotoShow extends React.Component {
     let albumListItems = [];
     let albumCount = 0;
     if (photo.albumIds.length > 0) {
-      albumListItems = photo.albumIds.map(id => (
-        <Link key={id} to={`/albums/${id}`}>
-          <div className="album-list-item">
-            <Image publicId={albums[id].cover_photo_url} cloudName="shuttr" >
-              <Transformation width="100" height="100" crop="thumb" />
-            </Image>
-            {albums[id].title}
-          </div>
-        </Link>
-      ));
+      albumListItems = photo.albumIds.map(id => {
+          return (
+            <Link key={id} to={`/albums/${id}`}>
+              <div className="album-list-item">
+                <Image publicId={albums[id].cover_photo_url} cloudName="shuttr" >
+                  <Transformation width="100" height="100" crop="thumb" />
+                </Image>
+                {albums[id].title}
+              </div>
+            </Link>
+          );
+        }
+      );
 
       albumCount = photo.albumIds.length;
     }
@@ -226,6 +283,17 @@ class PhotoShow extends React.Component {
               </div>
               <div className="album-links">
                 {albumListItems}
+              </div>
+            </div>
+
+            <div className="photo-tags-container">
+              <div className="photo-tags-header">
+                { this.tagsHeader() }
+                { this.tagAddButton() }
+              </div>
+              { this.tagForm() }
+              <div className="photo-tag-index">
+                { this.tagItems() }
               </div>
             </div>
           </div>

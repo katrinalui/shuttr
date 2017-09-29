@@ -32,3 +32,11 @@ export const selectPhotoComments = (state, photoId) => {
     new Date(a.created_at) - new Date(b.created_at)
   ));
 };
+
+export const selectPhotoTags = (state, photoId) => {
+  if (!state.entities.photos[parseInt(photoId)] || !state.entities.photos[parseInt(photoId)].tagIds) {
+    return [];
+  }
+  const tagIds = state.entities.photos[parseInt(photoId)].tagIds;
+  return tagIds.map(id => state.entities.tags[id]);
+};

@@ -1,0 +1,71 @@
+.photo-tags-container {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  padding-top: 30px;
+}
+
+.tag-item, div.ReactTags__selected span.ReactTags__tag {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px 8px;
+  border-radius: 3px;
+  width: fit-content;
+  color: white;
+  margin: 0px 3px 3px 0px;
+}
+
+div.ReactTags__tagInput input.ReactTags__tagInputField,
+div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
+    height: 31px;
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid #eee;
+}
+
+.ReactTags__selected .ReactTags__remove {
+  margin-left: 5px;
+}
+
+.photo-tags-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag-item:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  a {
+    color: white;
+  }
+}
+
+.photo-tag-index {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+div.ReactTags__tags {
+    position: relative;
+}
+
+div.ReactTags__tagInput {
+    width: 200px;
+    display: inline-block;
+}
+div.ReactTags__tagInput input.ReactTags__tagInputField,
+div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
+    height: 31px;
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 3px 5px;
+}
+
+div.ReactTags__selected a.ReactTags__remove {
+    color: white;
+    margin-left: 5px;
+    cursor: pointer;
+}

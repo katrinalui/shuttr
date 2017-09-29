@@ -47,10 +47,19 @@ export const postAlbumMembership = (photoId, albums) => (
   })
 );
 
-export const postTagging = (photoId, tags) => (
-  $.ajax({
-    url: `api/photos/${photoId}/edit_taggings`,
+export const postAddTag = (photoId, tag) => {
+  console.log("tag in ajax", tag);
+  return $.ajax({
+    url: `api/photos/${photoId}/add_tag`,
     method: 'POST',
-    data: { tags }
+    data: { tag }
+  });
+};
+
+export const postRemoveTag = (photoId, tag) => (
+  $.ajax({
+    url: `api/photos/${photoId}/remove_tag`,
+    method: 'POST',
+    data: { tag }
   })
 );

@@ -6,7 +6,8 @@ import {
   patchPhoto,
   deletePhoto,
   postAlbumMembership,
-  postTagging
+  postAddTag,
+  postRemoveTag
 } from '../util/photo_api_util';
 import { startLoading } from './loading_actions';
 
@@ -60,6 +61,10 @@ export const editAlbumMembership = (photoId, albums) => dispatch => (
   postAlbumMembership(photoId, albums).then(photo => dispatch(receivePhoto(photo)))
 );
 
-export const editTaggings = (photoId, tags) => dispatch => (
-  postTagging(photoId, tags).then(photo => dispatch(receivePhoto(photo)))
+export const addTag = (photoId, tag) => dispatch => (
+  postAddTag(photoId, tag).then(photo => dispatch(receivePhoto(photo)))
+);
+
+export const removeTag = (photoId, tag) => dispatch => (
+  postRemoveTag(photoId, tag).then(photo => dispatch(receivePhoto(photo)))
 );

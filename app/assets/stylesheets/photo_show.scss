@@ -65,7 +65,7 @@
     .information {
       display: flex;
       flex-direction: row;
-      width: 100%;
+      width: 85%;
     }
 
     .photo-info img {
@@ -94,6 +94,10 @@
     font-size: 14px;
     flex-direction: column;
     margin-top: 15px;
+
+    h3 {
+      font-size: 14px;
+    }
   }
 }
 
@@ -236,9 +240,9 @@
   margin-top: 20px;
   width: 100%;
 
-  h3 {
-    font-size: 14px;
-  }
+  // h3 {
+  //   font-size: 14px;
+  // }
 
   .album-links {
     width: 100%;
