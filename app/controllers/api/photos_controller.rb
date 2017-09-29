@@ -54,12 +54,11 @@ class Api::PhotosController < ApplicationController
 
   def add_tag
     @photo = current_user.photos.find_by(id: params[:id])
-
-    if @photo.tags.create(tag_params)
-      render :show
-    else
-      render json: ['Photo does not exist'], status: 404
-    end
+    tag_ids = @photo.tag_ids
+    tag = Tag.find_or_create_by(tag_params)
+    tag_ids << tag.id
+    @photo.tag_ids = tag_ids
+    render :show
   end
 
   def remove_tag
