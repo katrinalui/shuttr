@@ -9,17 +9,26 @@ export const selectAllPhotos = state => {
 
 export const selectAllUserAlbums = (state, userId) => {
   let albums = values(state.entities.albums);
-  let userAlbums = albums.filter(album => album.owner_id === userId);
+  let userAlbums = albums.filter(album => album.owner_id === parseInt(userId));
   return userAlbums.sort((a, b) => (
     new Date(b.created_at) - new Date(a.created_at)
   ));
 };
 
+export const selectPhotoAlbums = (state, photoId) => {
+  let albums = values(state.entities.albums);
+  let photoAlbums = albums.filter(album => album.photo_id === parseInt(photoId));
+
+  return photoAlbums.reduce((acc, album) => {
+    acc[album.id] = album;
+    return acc;
+  }, {});
+};
+
 export const selectPhotoComments = (state, photoId) => {
-  return values(state.entities.comments);
-  // const comments = values(state.entities.comments);
-  // let photoComments = comments.filter(comment => comment.photo_id === photoId);
-  // return photoComments.sort((a, b) => (
-  //   new Date(a.created_at) - new Date(b.created_at)
-  // ));
+  const comments = values(state.entities.comments);
+  let photoComments = comments.filter(comment => comment.photo_id === parseInt(photoId));
+  return photoComments.sort((a, b) => (
+    new Date(a.created_at) - new Date(b.created_at)
+  ));
 };

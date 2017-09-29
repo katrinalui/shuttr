@@ -3,7 +3,8 @@ import PhotoShow from './photo_show';
 import { requestPhoto, destroyPhoto, editAlbumMembership } from '../../actions/photo_actions';
 import { requestUserAlbums } from '../../actions/album_actions';
 import { createComment } from '../../actions/comment_actions';
-import { selectAllUserAlbums, selectPhotoComments } from '../../reducers/selectors';
+import { selectAllUserAlbums, selectPhotoComments, selectPhotoAlbums } from '../../reducers/selectors';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
   photo: state.entities.photos[ownProps.match.params.photoId],
@@ -22,4 +23,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   createComment: (comment, photoId) => dispatch(createComment(comment, photoId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoShow));

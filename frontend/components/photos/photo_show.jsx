@@ -52,33 +52,38 @@ class PhotoShow extends React.Component {
   }
 
   editModal() {
-    const { photo } = this.props;
+    const { photo, currentUser } = this.props;
 
     const getEditParent = () => {
       return document.querySelector('#edit-menu-button');
     };
 
-    return (
-      <Modal
-        isOpen={this.state.editModalIsOpen}
-        contentLabel="Edit Modal"
-        parentSelector={getEditParent}
-        className={{
-          base: 'edit-menu-modal'
-        }}
-        overlayClassName={{
-          base: 'edit-menu-overlay'
-        }}
-        >
-        <button onClick={this.closeEditModal}>X</button>
+    if (currentUser.id === photo.owner_id) {
+      return (
+        <Modal
+          isOpen={this.state.editModalIsOpen}
+          contentLabel="Edit Modal"
+          parentSelector={getEditParent}
+          className={{
+            base: 'edit-menu-modal'
+          }}
+          overlayClassName={{
+            base: 'edit-menu-overlay'
+          }}
+          >
+          <button onClick={this.closeEditModal}>X</button>
 
-        <PhotoEditMenu
-          photoId={photo.id}
-          destroyPhoto={this.props.destroyPhoto}
-          history={this.props.history}
-          />
-      </Modal>
-    );
+          <PhotoEditMenu
+            photoId={photo.id}
+            destroyPhoto={this.props.destroyPhoto}
+            history={this.props.history}
+            />
+        </Modal>
+      );
+    } else {
+      return <div></div>;
+    }
+
   }
 
   commentItems() {
