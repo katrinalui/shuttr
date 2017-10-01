@@ -1,6 +1,6 @@
 # ![Shuttr](http://res.cloudinary.com/shuttr/image/upload/v1506723405/shuttr_logo_grey_sywlf7.png)
 
-[Shuttr](http://shuttr-photo.herokuapp.com/) is a web application inspired by Flickr that allows users to view and share photos. Shuttr allows users to upload their own photos, create albums, and explore photos by other users.
+[Shuttr](http://shuttr.katrinalui.com) is a web application inspired by Flickr that allows users to view and share photos. Shuttr allows users to upload their own photos, create albums, and explore photos by other users.
 
 ## Technologies Used
 
