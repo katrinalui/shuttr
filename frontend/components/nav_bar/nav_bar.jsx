@@ -11,18 +11,11 @@ class NavBar extends React.Component {
       modalIsOpen: false
     };
     this.toggleModal = this.toggleModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
   }
 
   toggleModal() {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      modalIsOpen: false
     });
   }
 
@@ -71,6 +64,7 @@ class NavBar extends React.Component {
             <UserMenu
               currentUser={ this.props.currentUser }
               logout={this.props.logout}
+              toggleModal={this.toggleModal}
             />
           </Modal>
         </div>
