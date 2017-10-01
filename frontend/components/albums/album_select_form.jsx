@@ -10,6 +10,7 @@ class AlbumSelectForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getOptions = this.getOptions.bind(this);
   }
 
   handleChange(value) {

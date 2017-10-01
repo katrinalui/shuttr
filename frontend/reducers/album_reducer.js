@@ -11,7 +11,7 @@ const AlbumReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALBUMS:
-      return Object.assign({}, action.albums);
+      return Object.assign({}, state, action.albums);
     case RECEIVE_ALBUM:
       const album = action.payload.album;
       album.photoIds = action.payload.photos.map(photo => photo.id);

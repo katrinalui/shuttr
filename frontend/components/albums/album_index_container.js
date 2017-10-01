@@ -6,7 +6,7 @@ import { selectAllUserAlbums } from '../../reducers/selectors';
 import values from 'lodash/values';
 
 const mapStateToProps = (state, ownProps) => ({
-  albums: values(state.entities.albums),
+  albums: selectAllUserAlbums(state, ownProps.match.params.userId),
   loading: state.ui.loading,
   user: state.entities.users[ownProps.match.params.userId],
   currentUser: state.session.currentUser
