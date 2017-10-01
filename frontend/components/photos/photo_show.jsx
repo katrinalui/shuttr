@@ -75,12 +75,13 @@ class PhotoShow extends React.Component {
             base: 'edit-menu-overlay'
           }}
           >
-          <button onClick={this.closeEditModal}>X</button>
 
           <PhotoEditMenu
             photoId={photo.id}
             destroyPhoto={this.props.destroyPhoto}
             history={this.props.history}
+            closeEditModal={this.closeEditModal}
+            outsideClickIgnoreClass={"delete-menu-modal"}
             />
         </Modal>
       );

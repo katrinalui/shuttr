@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import PhotoFormContainer from './photo_form_container';
+import onClickOutside from 'react-onclickoutside';
+import PhotoDeleteWarning from './photo_delete_warning';
 
 class PhotoEditMenu extends React.Component {
   constructor(props) {
@@ -11,8 +12,6 @@ class PhotoEditMenu extends React.Component {
     };
     this.toggleDeleteModal = this.toggleDeleteModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    // this.openEditModal = this.openEditModal.bind(this);
-    // this.closeEditModal = this.closeEditModal.bind(this);
   }
 
   toggleDeleteModal(e) {
@@ -22,21 +21,13 @@ class PhotoEditMenu extends React.Component {
     }));
   }
 
-  // openEditModal() {
-  //   this.setState({
-  //     editModalIsOpen: true
-  //   });
-  // }
-  //
-  // closeEditModal() {
-  //   this.setState({
-  //     editModalIsOpen: false
-  //   });
-  // }
-
   handleDelete() {
     this.props.destroyPhoto(this.props.photoId)
       .then(() => this.props.history.push('/home'));
+  }
+
+  handleClickOutside() {
+    this.props.closeEditModal();
   }
 
   render() {
@@ -59,16 +50,14 @@ class PhotoEditMenu extends React.Component {
           overlayClassName={{
             base: 'delete-menu-overlay'
           }}>
-          
-          <p>Are you sure you want to delete this photo?</p>
-          <div className="delete-buttons">
-            <button onClick={this.toggleDeleteModal}>Cancel</button>
-            <button
-              onClick={this.handleDelete}
-              className="delete-button">
-              Delete
-            </button>
-          </div>
+
+          <PhotoDeleteWarning
+            toggleDeleteModal={this.toggleDeleteModal}
+            destroyPhoto={this.props.destroyPhoto}
+            history={this.props.history}
+            photoId={this.props.photoId}
+          />
+
         </Modal>
 
       </div>
@@ -76,17 +65,4 @@ class PhotoEditMenu extends React.Component {
   }
 }
 
-// <Modal
-//   isOpen={this.state.editModalIsOpen}
-//   contentLabel="Edit Modal"
-//   onRequestClose={this.closeEditModal}
-//   className={{
-//     base: 'edit-menu-modal'
-//   }}
-//   overlayClassName={{
-//     base: 'edit-menu-overlay'
-//   }}>
-//
-//   <PhotoFormContainer formType="edit"/>
-// </Modal>
-export default PhotoEditMenu;
+export default onClickOutside(PhotoEditMenu);
