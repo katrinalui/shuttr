@@ -11,9 +11,10 @@ import AlbumIndexContainer from './albums/album_index_container';
 import AlbumShowContainer from './albums/album_show_container';
 import AlbumFormContainer from './albums/album_form_container';
 import TaggedPhotoIndexContainer from './tags/tagged_photo_index_container';
+import Footer from './footer';
 
 const App = () => (
-  <div>
+  <div id="wrapper">
     <nav className="navbar">
       <ProtectedRoute path="/" component={NavBarContainer}/>
     </nav>
@@ -34,6 +35,10 @@ const App = () => (
         <ProtectedRoute path='/tags/:tagId' component={TaggedPhotoIndexContainer}/>
       </Switch>
     </main>
+
+    <footer>
+      <Footer />
+    </footer>
   </div>
 );
 

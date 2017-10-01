@@ -1,11 +1,26 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   overflow: hidden;
-  height: 100%;
 }
 
 body {
-  height: 100%;
   overflow: auto;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100%;
 }
 
 .single4 {
@@ -47,7 +62,7 @@ body {
 .body {
   display: flex;
   justify-content: center;
-  padding-bottom: 25px;
+  min-height: calc(100vh - 60px);
 }
 
 .avatar {

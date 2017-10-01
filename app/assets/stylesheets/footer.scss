@@ -1,0 +1,23 @@
+footer {
+  bottom: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #424242;
+  height: 40px;
+}
+
+.footer-links {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+}
+
+i.fa.fa-camera {
+  font-size: 21px;
+}
