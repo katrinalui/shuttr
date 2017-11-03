@@ -30,6 +30,10 @@ class PhotoShow extends React.Component {
     this.props.requestUserAlbums(this.props.currentUser.id);
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.photoId !== newProps.match.params.photoId) {
       this.props.requestPhoto(newProps.match.params.photoId);

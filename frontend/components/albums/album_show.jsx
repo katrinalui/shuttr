@@ -9,6 +9,10 @@ class AlbumShow extends React.Component {
     this.props.requestAlbum(this.props.match.params.albumId);
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.albumId !== newProps.match.params.albumId) {
       this.props.requestAlbum(newProps.match.params.albumId);

@@ -26,7 +26,6 @@ const App = () => (
         <ProtectedRoute path='/photos/upload' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId/edit' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
-        <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
         <ProtectedRoute path='/users/:userId/albums' component={AlbumIndexContainer}/>
         <ProtectedRoute path='/users/:userId/photos' component={PhotoUserIndexContainer}/>
         <ProtectedRoute path='/albums/new' component={AlbumFormContainer}/>
