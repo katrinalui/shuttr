@@ -38,6 +38,10 @@
     }
 }
 
+.fa-pencil-square-o:hover {
+  color: #a7a7a7;
+}
+
 .photo-edit-menu {
   display: flex;
   flex-direction: column;
@@ -47,6 +51,10 @@
     margin-bottom: 10px;
     color: grey;
     font-size: 16px;
+  }
+
+  a:hover {
+    color: #a3a4a3;
   }
 }
 
@@ -259,11 +267,20 @@
       background-color: #c0392b;
       color: white;
     }
+
+    .delete-button:hover {
+      background-color: #b33629;
+    }
   }
 }
 
 .delete-button {
   background-color: #c0392b;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #b33629;
   color: white;
 }
 

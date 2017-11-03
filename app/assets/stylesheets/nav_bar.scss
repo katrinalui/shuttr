@@ -59,6 +59,7 @@ i.fa.fa-cloud-upload {
   height: 100px;
   background-color: white;
   border: 1px solid #D9D9D9;
+  border-radius: 3px;
 }
 
 .user-menu-modal:after, .user-menu-modal:before {
@@ -101,7 +102,7 @@ i.fa.fa-cloud-upload {
   justify-content: space-around;
 
   a {
-    color: gray;
+    color: #5f6060;
   }
 
   a:hover {
