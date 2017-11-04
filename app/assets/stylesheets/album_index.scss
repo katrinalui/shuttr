@@ -1,6 +1,6 @@
 .user-albums-container {
   margin-top: 40px;
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@
 .album-index-bar {
   align-items: center;
   margin-bottom: 50px;
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 
@@ -42,31 +42,43 @@
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-around;
+
+  a {
+    margin-left: 10px;
+  }
 }
 
 .album-index-item {
   background-size: cover;
-  width: 250px;
-  height: 270px;
+  width: 245px;
+  height: 245px;
   background-position: center;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   flex-direction: column;
   color: white;
-  padding: 15px 25px;
   margin-bottom: 15px;
+}
 
-  .album-title {
-    font-size: 28px;
-    letter-spacing: 1px;
-    color: white;
-  }
+.album-title {
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: white;
+}
 
-  .album-photo-count {
-    font-size: 14px;
-  }
+.album-photo-count {
+  font-size: 14px;
+  margin: 5px 0.2em;
+}
+
+.album-index-gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,rgba(0,0,0,.4) 0,transparent 30%,transparent);
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .album-photos {
@@ -75,22 +87,34 @@
   position: relative;
   column-count: 1;
   column-gap: 5px;
+}
 
-  .image-container {
-    max-width: 100%;
-    height: 100px;
+.image-container {
+  max-width: 100%;
+  height: 100px;
+  display: inline-block;
+
+  a {
     display: inline-block;
+    width: 100%;
+  }
+
+  img {
+    max-width:100%;
+    max-height:100%;
+  }
+}
+
+.album-index-item-desc {
+  padding: 12px 25px;
+}
+
+@media only screen and (max-width : 450px) {
+  .albums-index {
+    justify-content: center;
 
     a {
-      display: inline-block;
-      width: 100%;
-    }
-
-    img {
-
-      max-width:100%;
-      max-height:100%;
-      // display: inline-block;
+      margin: 0px;
     }
   }
 }
