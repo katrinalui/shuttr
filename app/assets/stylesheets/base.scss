@@ -77,3 +77,9 @@ body {
 a:hover, button:hover {
   color: #a3a4a3;
 }
+
+@media only screen and (max-width : 450px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
