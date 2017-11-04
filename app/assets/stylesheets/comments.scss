@@ -62,3 +62,9 @@
   display: flex;
   justify-content: flex-end;
 }
+
+@media only screen and (max-width : 450px) {
+  .comment-index-container {
+    width: 100%;
+  }
+}

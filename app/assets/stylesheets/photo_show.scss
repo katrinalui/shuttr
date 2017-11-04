@@ -64,82 +64,54 @@
   // flex-direction: row;
   // justify-content: space-between;
   width: 60%;
+}
 
-  .photo-info-left {
-    float: left;
+.photo-info-left {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+
+  .information {
     display: flex;
-    flex-direction: column;
-    width: 55%;
-
-    .information {
-      display: flex;
-      flex-direction: row;
-      width: 85%;
-    }
-
-    .photo-info img {
-      width: 50px;
-      height: 50px;
-      margin: 10px 20px 0px 5px;
-    }
-
-    .photo-text {
-      width: 500px;
-      margin: 10px;
-    }
-
-    .photo-text h2 {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
+    flex-direction: row;
+    width: 85%;
   }
 
-  .photo-info-right {
-    float: right;
-    display: flex;
-    justify-content: flex-end;
-    width: 45%;
-    align-items: flex-end;
-    font-size: 14px;
-    flex-direction: column;
-    margin-top: 15px;
+  .photo-info img {
+    width: 50px;
+    height: 50px;
+    margin: 10px 20px 0px 5px;
+  }
 
-    h3 {
-      font-size: 14px;
+  .photo-text {
+    width: 500px;
+    margin: 10px;
+
+    h2 {
+      font-size: 1em;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.8em;
     }
   }
 }
 
-@media only screen and (max-width : 450px) {
-  .photo-show {
-    width: 100vw;
-  }
+.photo-info-right {
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+  width: 45%;
+  align-items: flex-end;
+  font-size: 14px;
+  flex-direction: column;
+  margin-top: 15px;
 
-  .photo-show-img {
-    width: 100vw;
-    max-height: 80vh;
-
-    img{
-      width: 100vw;
-    }
-  }
-
-  .photo-info {
-    width: 100vw;
-  }
-
-  .photo-text {
-    h2 {
-      font-size: 16px;
-    }
-
-    p {
-      font-size: 12px;
-    }
-  }
-
-  .photo-info-right {
-    font-size: 12px;
+  h3 {
+    font-size: 14px;
   }
 }
 
@@ -395,4 +367,43 @@
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
+}
+
+@media only screen and (max-width : 450px) {
+  .photo-show-img {
+    width: 100vw;
+    max-height: 80vh;
+
+    img{
+      width: 100vw;
+    }
+  }
+
+  .photo-info {
+    width: 90vw;
+  }
+
+  .photo-text {
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .photo-info-left {
+    width: 100%;
+  }
+
+  .photo-info-left.information {
+    width: 100%;
+  }
+
+  .photo-info-right {
+    font-size: 12px;
+    width: 100%;
+    align-items: flex-start;
+  }
 }
