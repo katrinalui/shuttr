@@ -36,6 +36,7 @@ class PhotoUserIndex extends React.Component {
     return (
       <div className="album-show">
         <div className="album-index-bar">
+          <div className="left-box" />
           <div className="album-owner">
             <Image publicId={photos[0].owner_avatar} cloudName="shuttr" >
               <Transformation width="100" height="100" crop="thumb" />
@@ -43,7 +44,9 @@ class PhotoUserIndex extends React.Component {
             <h2>{ photos[0].owner }</h2>
           </div>
 
-          <Link to={`/users/${photos[0].owner_id}/albums`}>Albums</Link>
+          <div className="right-box">
+            <Link to={`/users/${photos[0].owner_id}/albums`}>Albums</Link>
+          </div>
         </div>
 
         <div className="album-photos">

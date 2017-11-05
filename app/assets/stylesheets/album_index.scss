@@ -9,33 +9,40 @@
 .album-index-bar {
   align-items: center;
   margin-bottom: 50px;
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   img {
     border-radius: 100%;
     width: 100px;
     height: 100px;
-    margin-left: 50px;
   }
+}
+
+.album-owner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
 
   h2 {
-    font-size: 30px;
+    font-size: 22px;
     color: gray;
-    margin-left: 20px;
   }
+}
 
-  .album-owner {
-    display: flex;
-    align-items: center;
-    float: left;
-  }
+.left-box {
+  width: 33.33%;
+}
 
-  a {
-    float: right;
-    margin-right: 50px;
-  }
+.right-box {
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  font-size: 14px;
 }
 
 .albums-index {
@@ -44,7 +51,7 @@
   flex-wrap: wrap;
 
   a {
-    margin-left: 10px;
+    margin-left: 20px;
   }
 }
 
