@@ -56,8 +56,10 @@ class AlbumIndex extends React.Component {
             { newAlbumLink }
           </div>
         </div>
-        <div className="albums-index">
-          { albumIndex }
+        <div className="albums-index-container">
+          <div className="albums-index">
+            { albumIndex }
+          </div>
         </div>
       </div>
     );

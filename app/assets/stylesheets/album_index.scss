@@ -45,9 +45,14 @@
   font-size: 14px;
 }
 
+.albums-index-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .albums-index {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
 
   a {
@@ -66,6 +71,13 @@
   flex-direction: column;
   color: white;
   margin-bottom: 15px;
+  opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.album-index-item:hover {
+  opacity: .5;
 }
 
 .album-title {
