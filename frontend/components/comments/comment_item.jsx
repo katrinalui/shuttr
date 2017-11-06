@@ -7,7 +7,7 @@ const CommentItem = ({ comment }) => {
     <div className="comment-item">
       <Link to={`/users/${comment.author_id}/photos`}>
         <Image publicId={comment.author_img_url} cloudName="shuttr" >
-          <Transformation width="50" height="50" crop="thumb" />
+          <Transformation width="100" height="100" crop="thumb" />
         </Image>
       </Link>
 

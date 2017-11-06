@@ -30,8 +30,13 @@ class AlbumIndex extends React.Component {
 
     let albumIndex = <h2>Nothing to see here.</h2>;
     if (albums.length > 0) {
-      albumIndex = albums.map(album =>
+      const albumItems = albums.map(album =>
         <AlbumIndexItem key={album.id} album={album}/>
+      );
+      albumIndex = (
+        <div className="albums-index">
+          { albumItems }
+        </div>
       );
     }
 
@@ -47,7 +52,7 @@ class AlbumIndex extends React.Component {
           <div className="album-owner">
             <Link to={`/users/${user.id}/photos`}>
               <Image publicId={user.img_url} cloudName="shuttr" >
-                <Transformation width="100" height="100" crop="thumb" />
+                <Transformation width="200" height="200" crop="thumb" />
               </Image>
             </Link>
             <h2>{ user.username }</h2>
@@ -57,9 +62,7 @@ class AlbumIndex extends React.Component {
           </div>
         </div>
         <div className="albums-index-container">
-          <div className="albums-index">
-            { albumIndex }
-          </div>
+          { albumIndex }
         </div>
       </div>
     );

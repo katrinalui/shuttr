@@ -39,7 +39,7 @@ class PhotoUserIndex extends React.Component {
           <div className="left-box" />
           <div className="album-owner">
             <Image publicId={photos[0].owner_avatar} cloudName="shuttr" >
-              <Transformation width="100" height="100" crop="thumb" />
+              <Transformation width="200" height="200" crop="thumb" />
             </Image>
             <h2>{ photos[0].owner }</h2>
           </div>
