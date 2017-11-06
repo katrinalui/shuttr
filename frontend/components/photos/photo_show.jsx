@@ -248,7 +248,7 @@ class PhotoShow extends React.Component {
       <div className="photo-show">
         <div className="photo-show-img">
           <Image publicId={photo.img_url} cloudName="shuttr" >
-            <Transformation width="1000" crop="scale" />
+            <Transformation width="1200" crop="scale" />
           </Image>
           { editButton }
 

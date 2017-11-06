@@ -372,10 +372,11 @@
 @media only screen and (max-width : 450px) {
   .photo-show-img {
     width: 100vw;
-    max-height: 80vh;
+    max-height: 100vh;
 
     img{
       width: 100vw;
+      max-height: 100vh;
     }
   }
 
