@@ -8,6 +8,10 @@ class TaggedPhotoIndex extends React.Component {
     this.props.requestTag(this.props.match.params.tagId);
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.tagId !== newProps.match.params.tagId) {
       this.props.requestTagPhotos(newProps.match.params.tagId);
