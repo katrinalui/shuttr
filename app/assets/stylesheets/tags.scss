@@ -33,11 +33,15 @@ div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
   justify-content: space-between;
 }
 
-.tag-item:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  a {
-    color: white;
+.tag-item {
+  a:hover, button:hover {
+    color: #E8E8E8;
   }
+}
+
+.tag-delete-hidden {
+  display: none;
+  margin-left: 10px;
 }
 
 .photo-tag-index {

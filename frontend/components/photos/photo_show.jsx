@@ -109,7 +109,11 @@ class PhotoShow extends React.Component {
     if (tags.length > 0) {
       return (
         tags.map(tag => (
-          <TagItem key={ tag.id } tag={ tag } removeTag={this.props.removeTag}/>
+          <TagItem
+            key={ tag.id }
+            photoId={this.props.match.params.photoId}
+            tag={ tag }
+            removeTag={this.props.removeTag}/>
         ))
       );
     }
