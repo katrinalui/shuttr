@@ -39,9 +39,14 @@ div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
   }
 }
 
-.tag-delete-hidden {
-  display: none;
-  margin-left: 10px;
+.tag-delete {
+  &.hidden {
+    display: none;
+    margin-left: 10px;
+  }
+  &.show {
+    display: inline-block;
+  }
 }
 
 .photo-tag-index {

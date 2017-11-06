@@ -19,13 +19,15 @@ class TagItem extends React.Component {
 
   render() {
     const { tag, photoId, removeTag } = this.props;
+    let tagName = tag.name;
+    if (tagName.length > 25) tagName = `${tagName.substr(0, 25)}...`;
 
     return (
       <div className="tag-item"
            onMouseEnter={this.onMouseEnter.bind(this)}
            onMouseLeave={this.onMouseLeave.bind(this)}>
-        <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
-        <span className={ this.state.deleteClass ? "" : "tag-delete-hidden"}>
+        <Link to={`/tags/${tag.id}`}>{tagName}</Link>
+        <span className={ this.state.deleteClass ? "tag-delete show" : "tag-delete hidden"}>
           <button style={{ marginLeft: 5 }} onClick={() => removeTag(photoId, tag)}>
             <i className="fa fa-times" aria-hidden="true"></i>
           </button>
