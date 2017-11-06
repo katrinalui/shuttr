@@ -1,5 +1,11 @@
 .photo-form-container.album {
-  width: 400px;
+  width: 50%;
   flex-flow: column;
   align-items: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .photo-form-container.album {
+    width: 30%;
+  }
 }
