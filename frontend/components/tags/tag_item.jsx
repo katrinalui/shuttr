@@ -10,7 +10,9 @@ class TagItem extends React.Component {
   }
 
   onMouseEnter() {
-    this.setState({ deleteClass: true });
+    if (this.props.currentUser.id === this.props.photo.owner_id) {
+      this.setState({ deleteClass: true });
+    }
   }
 
   onMouseLeave() {
@@ -18,7 +20,7 @@ class TagItem extends React.Component {
   }
 
   render() {
-    const { tag, photoId, removeTag } = this.props;
+    const { tag, photo, removeTag } = this.props;
     let tagName = tag.name;
     if (tagName.length > 25) tagName = `${tagName.substr(0, 25)}...`;
 
@@ -28,7 +30,7 @@ class TagItem extends React.Component {
            onMouseLeave={this.onMouseLeave.bind(this)}>
         <Link to={`/tags/${tag.id}`}>{tagName}</Link>
         <span className={ this.state.deleteClass ? "tag-delete show" : "tag-delete hidden"}>
-          <button style={{ marginLeft: 5 }} onClick={() => removeTag(photoId, tag)}>
+          <button style={{ marginLeft: 5 }} onClick={() => removeTag(photo.id, tag)}>
             <i className="fa fa-times" aria-hidden="true"></i>
           </button>
         </span>

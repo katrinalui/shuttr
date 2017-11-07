@@ -111,7 +111,8 @@ class PhotoShow extends React.Component {
         tags.map(tag => (
           <TagItem
             key={ tag.id }
-            photoId={this.props.match.params.photoId}
+            currentUser={this.props.currentUser}
+            photo={this.props.photo}
             tag={ tag }
             removeTag={this.props.removeTag}/>
         ))
