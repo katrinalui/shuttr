@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AlbumIndexItem = ({album}) => {
   let divStyle = {
-    backgroundImage: `url(http://res.cloudinary.com/shuttr/image/upload/v1506372551/${album.cover_photo_url})`
+    backgroundImage: `url(https://res.cloudinary.com/shuttr/image/upload/v1506372551/${album.cover_photo_url})`
   };
 
   if (!album.cover_photo_url) {
