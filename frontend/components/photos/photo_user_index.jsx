@@ -22,7 +22,7 @@ class PhotoUserIndex extends React.Component {
   }
 
   render() {
-    const { photos, loading } = this.props;
+    const { photos, loading, user } = this.props;
 
     if (loading) {
       return (
@@ -30,7 +30,18 @@ class PhotoUserIndex extends React.Component {
       );
     }
 
-    if (photos.length === 0) { return <div></div>; }
+    if (!user) { return <div></div>; }
+
+    let photoIndex = <h2>Nothing to see here.</h2>;
+    if (photos.length > 0) {
+      photoIndex = (
+        <div className="album-photos">
+          { photos.map(photo =>
+          <PhotoItem key={photo.id} photo={photo}/>
+          )}
+        </div>
+      );
+    }
 
     // Need to refactor class names for styling!
     return (
@@ -38,22 +49,19 @@ class PhotoUserIndex extends React.Component {
         <div className="album-index-bar">
           <div className="left-box" />
           <div className="album-owner">
-            <Image publicId={photos[0].owner_avatar} cloudName="shuttr" >
+            <Image publicId={user.img_url} cloudName="shuttr" >
               <Transformation width="200" height="200" crop="thumb" />
             </Image>
-            <h2>{ photos[0].owner }</h2>
+            <h2>{ user.username }</h2>
           </div>
 
           <div className="right-box">
-            <Link to={`/users/${photos[0].owner_id}/albums`}>Albums</Link>
+            <Link to={`/users/${user.id}/albums`}>Albums</Link>
           </div>
         </div>
 
-        <div className="album-photos">
-          { photos.map(photo =>
-            <PhotoItem key={photo.id} photo={photo}/>
-          ) }
-        </div>
+        { photoIndex }
+
       </div>
     );
   }

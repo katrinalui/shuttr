@@ -6,7 +6,8 @@ import { requestUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   photos: selectAllPhotos(state),
-  loading: state.ui.loading
+  loading: state.ui.loading,
+  user: state.entities.users[ownProps.match.params.userId]
 });
 
 const mapDispatchToProps = dispatch => ({
