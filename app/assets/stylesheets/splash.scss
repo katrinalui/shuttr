@@ -40,21 +40,12 @@
   }
 }
 
-
-@media only screen and (max-width : 450px){
-  .hero-text h1 {
-    font-size: 25px;
-    letter-spacing: 2px;
-  }
-}
-
-
 .splash-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  padding: 10px 20px;
+  padding: 10px 15px;
 }
 
 .signup-login {
@@ -63,19 +54,36 @@
   justify-content: flex-end;
 
   button {
-    background-color: white;
-    opacity: .6;
-    height: 30px;
-    color: #3a3b3a;
+    // background-color: white;
+    opacity: .7;
+    // height: 30px;
+    color: white;
     letter-spacing: 1px;
     margin-right: 10px;
-    border-radius: 3px;
-    font-size: 12px;
+    // border-radius: 3px;
+    font-size: 14px;
     text-transform: uppercase;
-    padding: 1px 12px 1px 12px;
+    padding: 1px 12px;
   }
 
   button:hover {
     color: #a3a4a3;
+  }
+}
+
+@media only screen and (max-width : 450px){
+  .hero-text h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+
+  .splash-nav {
+    padding: 10px 5px;
+  }
+
+  .signup-login {
+    button {
+      padding: 1px 5px;
+    }
   }
 }
