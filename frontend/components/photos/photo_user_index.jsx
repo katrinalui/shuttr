@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoItem from './photo_item';
+import SubNav from '../nav_bar/subnav';
 import LoadingSpinner from '../loading_spinner';
 import { Image, Transformation } from 'cloudinary-react';
 import { Link } from 'react-router-dom';
@@ -19,6 +20,12 @@ class PhotoUserIndex extends React.Component {
       this.props.requestUserPhotos(newProps.match.params.userId);
       this.props.requestUser(newProps.match.params.userId);
     }
+  }
+
+  pageName() {
+    const path = this.props.match.path;
+    const i = path.lastIndexOf('/');
+    return path.substring(i + 1);
   }
 
   render() {
@@ -59,6 +66,8 @@ class PhotoUserIndex extends React.Component {
             <Link to={`/users/${user.id}/albums`}>Albums</Link>
           </div>
         </div>
+
+        <SubNav userId={user.id} activeLink={this.pageName.bind(this)()}/>
 
         { photoIndex }
 
