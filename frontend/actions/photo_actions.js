@@ -41,9 +41,9 @@ export const requestUserPhotos = userId => dispatch => {
   return getUserPhotos(userId).then(photos => dispatch(receivePhotos(photos)));
 };
 
-export const requestTagPhotos = tagId => dispatch => {
+export const requestTagPhotos = tagName => dispatch => {
   dispatch(startLoading());
-  return getTagPhotos(tagId).then(photos => dispatch(receivePhotos(photos)));
+  return getTagPhotos(tagName).then(photos => dispatch(receivePhotos(photos)));
 };
 
 export const requestPhoto = photoId => dispatch => {

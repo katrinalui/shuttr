@@ -28,7 +28,7 @@ class TagItem extends React.Component {
       <div className="tag-item"
            onMouseEnter={this.onMouseEnter.bind(this)}
            onMouseLeave={this.onMouseLeave.bind(this)}>
-        <Link to={`/tags/${tag.id}`}>{tagName}</Link>
+        <Link to={`/tags/${tag.name}`}>{tagName}</Link>
         <span className={ this.state.deleteClass ? "tag-delete show" : "tag-delete hidden"}>
           <button style={{ marginLeft: 5 }} onClick={() => removeTag(photo.id, tag)}>
             <i className="fa fa-times" aria-hidden="true"></i>

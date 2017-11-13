@@ -6,8 +6,8 @@ export const postTag = (tag) => (
   })
 );
 
-export const getTag = (tagId) => (
+export const getTag = (tagName) => (
   $.ajax({
-    url: `api/tags/${tagId}`
+    url: `api/tags/${tagName}`
   })
 );

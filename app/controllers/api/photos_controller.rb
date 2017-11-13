@@ -2,8 +2,8 @@ class Api::PhotosController < ApplicationController
   def index
     @photos = if params[:user_id]
                 Photo.where(owner_id: params[:user_id]).includes(:owner)
-              elsif params[:tag_id]
-                Photo.with_tags(params[:tag_id])
+              elsif params[:tag_name]
+                Photo.with_tags(params[:tag_name])
               else
                 Photo.all.includes(:owner)
               end

@@ -31,7 +31,7 @@ const App = () => (
         <ProtectedRoute path='/albums/new' component={AlbumFormContainer}/>
         <ProtectedRoute path='/albums/:albumId/edit' component={AlbumFormContainer}/>
         <ProtectedRoute path='/albums/:albumId' component={AlbumShowContainer}/>
-        <ProtectedRoute path='/tags/:tagId' component={TaggedPhotoIndexContainer}/>
+        <ProtectedRoute path='/tags/:tagName' component={TaggedPhotoIndexContainer}/>
       </Switch>
     </main>
 

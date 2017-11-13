@@ -10,9 +10,9 @@ export const getUserPhotos = (userId) => (
   })
 );
 
-export const getTagPhotos = (tagId) => (
+export const getTagPhotos = (tagName) => (
   $.ajax({
-    url: `api/tags/${tagId}/photos`
+    url: `api/tags/${tagName}/photos`
   })
 );
 

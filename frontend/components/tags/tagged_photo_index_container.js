@@ -6,14 +6,14 @@ import { selectAllPhotos } from '../../reducers/selectors';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  tag: state.entities.tags[ownProps.match.params.tagId],
+  tag: state.entities.tags[ownProps.match.params.tagName],
   photos: selectAllPhotos(state),
   loading: state.ui.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
   requestTagPhotos: tagId => dispatch(requestTagPhotos(tagId)),
-  requestTag: tagId => dispatch(requestTag(tagId))
+  requestTag: tagName => dispatch(requestTag(tagName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaggedPhotoIndex);

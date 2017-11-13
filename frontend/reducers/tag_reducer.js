@@ -7,10 +7,10 @@ const TagReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_TAG:
       const tag = action.tag;
-      return Object.assign({}, state, { [tag.id]: tag });
+      return Object.assign({}, state, { [tag.name]: tag });
     case RECEIVE_PHOTO:
       const tags = action.payload.tags.reduce((acc, tag) => {
-        acc[tag.id] = tag;
+        acc[tag.name] = tag;
         return acc;
       }, {});
       return Object.assign({}, state, tags);

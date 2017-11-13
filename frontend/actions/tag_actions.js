@@ -7,8 +7,8 @@ export const receiveTag = tag => ({
   tag
 });
 
-export const requestTag = tagId => dispatch => {
-  return getTag(tagId).then(tag => dispatch(receiveTag(tag)));
+export const requestTag = tagName => dispatch => {
+  return getTag(tagName).then(tag => dispatch(receiveTag(tag)));
 };
 
 export const createTag = tag => dispatch => (

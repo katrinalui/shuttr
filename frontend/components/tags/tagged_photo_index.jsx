@@ -4,8 +4,8 @@ import PhotoItem from '../photos/photo_item';
 
 class TaggedPhotoIndex extends React.Component {
   componentWillMount() {
-    this.props.requestTagPhotos(this.props.match.params.tagId);
-    this.props.requestTag(this.props.match.params.tagId);
+    this.props.requestTagPhotos(this.props.match.params.tagName);
+    this.props.requestTag(this.props.match.params.tagName);
   }
 
   componentDidMount() {
@@ -13,9 +13,9 @@ class TaggedPhotoIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.match.params.tagId !== newProps.match.params.tagId) {
-      this.props.requestTagPhotos(newProps.match.params.tagId);
-      this.props.requestTag(newProps.match.params.tagId);
+    if (this.props.match.params.tagName !== newProps.match.params.tagName) {
+      this.props.requestTagPhotos(newProps.match.params.tagName);
+      this.props.requestTag(newProps.match.params.tagName);
     }
   }
 

@@ -48,8 +48,8 @@ class Photo < ApplicationRecord
            through: :taggings,
            source: :tag
 
-   def self.with_tags(tag_id)
-     Photo.joins(:tags).where("tags.id = ?", tag_id)
+   def self.with_tags(tag_name)
+     Photo.joins(:tags).where("tags.name = ?", tag_name)
    end
 
   def posted_time_ago

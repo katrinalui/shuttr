@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
   def show
-    @tag = Tag.find_by(id: params[:id])
+    @tag = Tag.find_by(name: params[:name])
 
     if @tag
       render :show

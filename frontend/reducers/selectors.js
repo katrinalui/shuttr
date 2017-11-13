@@ -34,9 +34,9 @@ export const selectPhotoComments = (state, photoId) => {
 };
 
 export const selectPhotoTags = (state, photoId) => {
-  if (!state.entities.photos[parseInt(photoId)] || !state.entities.photos[parseInt(photoId)].tagIds) {
+  if (!state.entities.photos[parseInt(photoId)] || !state.entities.photos[parseInt(photoId)].tags) {
     return [];
   }
-  const tagIds = state.entities.photos[parseInt(photoId)].tagIds;
-  return tagIds.map(id => state.entities.tags[id]);
+  const tags = state.entities.photos[parseInt(photoId)].tags;
+  return tags.map(name => state.entities.tags[name]);
 };
