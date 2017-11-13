@@ -8,19 +8,19 @@ class SubNav extends React.Component {
     const linkTitles = ["photos", "albums"];
     const navItems = linkTitles.map(link => {
       let className = "link";
-      if (link === activeLink) className.concat(" active");
+      if (link === activeLink) { className += " active"; }
       return (
-        <li className={className}>
-          <Link to={`/users/${userId}/${link}`}>{link}</Link>
-        </li>
+        <Link className={className} to={`/users/${userId}/${link}`}>
+          {link}
+        </Link>
       );
     });
 
     return (
       <div className="subnav">
-        <ul className="links">
+        <div className="links">
           {navItems}
-        </ul>
+        </div>
       </div>
     );
   }

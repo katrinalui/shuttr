@@ -6,11 +6,10 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import PhotoIndexContainer from './photos/photo_index_container';
 import PhotoShowContainer from './photos/photo_show_container';
 import PhotoFormContainer from './photos/photo_form_container';
-import PhotoUserIndexContainer from './photos/photo_user_index_container';
-import AlbumIndexContainer from './albums/album_index_container';
 import AlbumShowContainer from './albums/album_show_container';
 import AlbumFormContainer from './albums/album_form_container';
 import TaggedPhotoIndexContainer from './tags/tagged_photo_index_container';
+import UserHeaderContainer from './users/user_header_container';
 import Footer from './footer';
 
 const App = () => (
@@ -26,8 +25,7 @@ const App = () => (
         <ProtectedRoute path='/photos/upload' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId/edit' component={PhotoFormContainer} />
         <ProtectedRoute path='/photos/:photoId' component={PhotoShowContainer}/>
-        <ProtectedRoute path='/users/:userId/albums' component={AlbumIndexContainer}/>
-        <ProtectedRoute path='/users/:userId/photos' component={PhotoUserIndexContainer}/>
+        <ProtectedRoute path='/users/:userId' component={UserHeaderContainer}/>
         <ProtectedRoute path='/albums/new' component={AlbumFormContainer}/>
         <ProtectedRoute path='/albums/:albumId/edit' component={AlbumFormContainer}/>
         <ProtectedRoute path='/albums/:albumId' component={AlbumShowContainer}/>
