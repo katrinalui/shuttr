@@ -1,6 +1,6 @@
 import React from 'react';
 import PhotoItem from './photo_item';
-import SubNav from '../nav_bar/subnav';
+import SubNav from '../users/subnav';
 import LoadingSpinner from '../loading_spinner';
 import { Image, Transformation } from 'cloudinary-react';
 import { Link } from 'react-router-dom';
