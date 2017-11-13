@@ -40,7 +40,8 @@ class User < ApplicationRecord
            dependent: :destroy
 
   def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+    table = User.arel_table
+    user = User.where(table[:username].matches(username)).first
     return nil unless user
     user.is_password?(password) ? user : nil
   end
