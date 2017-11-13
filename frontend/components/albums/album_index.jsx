@@ -46,24 +46,9 @@ class AlbumIndex extends React.Component {
     }
 
     return (
-      <div className="user-albums-container">
-        <div className="album-index-bar">
-          <div className="left-box" />
-          <div className="album-owner">
-            <Link to={`/users/${user.id}/photos`}>
-              <Image publicId={user.img_url} cloudName="shuttr" >
-                <Transformation width="200" height="200" crop="thumb" />
-              </Image>
-            </Link>
-            <h2>{ user.username }</h2>
-          </div>
-          <div className="right-box">
-            { newAlbumLink }
-          </div>
-        </div>
-        <div className="albums-index-container">
-          { albumIndex }
-        </div>
+      <div className="albums-index-container">
+        { newAlbumLink }
+        { albumIndex }
       </div>
     );
   }

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Image, Transformation } from 'cloudinary-react';
+import { ProtectedRoute } from '../../util/route_util';
 import SubNav from './subnav';
+import AlbumIndexContainer from '../albums/album_index_container';
+import PhotoUserIndexContainer from '../photos/photo_user_index_container';
 
 class UserHeader extends React.Component {
   componentWillMount() {
@@ -13,8 +16,16 @@ class UserHeader extends React.Component {
     }
   }
 
+  pageName() {
+    const path = this.props.match.path;
+    const i = path.lastIndexOf('/');
+    return path.substring(i + 1);
+  }
+
   render() {
     const { user } = this.props;
+
+    if (!user) { return <div></div>; }
 
     return (
       <div className="user-header-container">
@@ -28,6 +39,11 @@ class UserHeader extends React.Component {
             </div>
           <div className="right-box" />
         </div>
+
+        <SubNav userId={user.id} activeLink={this.pageName.bind(this)()}/>
+
+        <ProtectedRoute path='/users/:userId/albums' component={AlbumIndexContainer}/>
+        <ProtectedRoute path='/users/:userId/photos' component={PhotoUserIndexContainer}/>
       </div>
     );
   }

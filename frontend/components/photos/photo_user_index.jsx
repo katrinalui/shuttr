@@ -53,24 +53,7 @@ class PhotoUserIndex extends React.Component {
     // Need to refactor class names for styling!
     return (
       <div className="album-show">
-        <div className="album-index-bar">
-          <div className="left-box" />
-          <div className="album-owner">
-            <Image publicId={user.img_url} cloudName="shuttr" >
-              <Transformation width="200" height="200" crop="thumb" />
-            </Image>
-            <h2>{ user.username }</h2>
-          </div>
-
-          <div className="right-box">
-            <Link to={`/users/${user.id}/albums`}>Albums</Link>
-          </div>
-        </div>
-
-        <SubNav userId={user.id} activeLink={this.pageName.bind(this)()}/>
-
         { photoIndex }
-
       </div>
     );
   }

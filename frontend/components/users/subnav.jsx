@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class SubNav extends React.Component {
   render() {
+    console.log(this.props);
     const { userId, activeLink } = this.props;
 
     const linkTitles = ["photos", "albums"];
