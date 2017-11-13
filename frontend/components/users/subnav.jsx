@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 class SubNav extends React.Component {
   render() {
-    console.log(this.props);
     const { userId, activeLink } = this.props;
 
     const linkTitles = ["photos", "albums"];
     const navItems = linkTitles.map(link => {
       let className = "link";
-      if (link === activeLink) className.concat(" active");
+      if (link === activeLink) { className += " active"; }
       return (
         <li className={className}>
           <Link to={`/users/${userId}/${link}`}>{link}</Link>

@@ -17,7 +17,7 @@ class UserHeader extends React.Component {
   }
 
   pageName() {
-    const path = this.props.match.path;
+    const path = this.props.location.pathname;
     const i = path.lastIndexOf('/');
     return path.substring(i + 1);
   }
