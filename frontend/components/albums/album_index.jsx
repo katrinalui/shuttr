@@ -40,14 +40,13 @@ class AlbumIndex extends React.Component {
       );
     }
 
-    let newAlbumLink = <div></div>;
-    if (currentUser.id === user.id) {
-      newAlbumLink = <Link to="/albums/new">New Album</Link>;
-    }
+    // let newAlbumLink = <div></div>;
+    // if (currentUser.id === user.id) {
+    //   newAlbumLink = <Link to="/albums/new">New Album</Link>;
+    // }
 
     return (
       <div className="albums-index-container">
-        { newAlbumLink }
         { albumIndex }
       </div>
     );

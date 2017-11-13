@@ -56,7 +56,7 @@ i.fa.fa-cloud-upload {
   left: 80%;
   transform: translate(-100%, 5%);
   width: 100px;
-  height: 100px;
+  height: 120px;
   background-color: white;
   border: 1px solid #D9D9D9;
   border-radius: 3px;
@@ -104,6 +104,7 @@ i.fa.fa-cloud-upload {
 
   a {
     color: #5f6060;
+    font-size: 15px;
   }
 
   a:hover {
@@ -113,4 +114,8 @@ i.fa.fa-cloud-upload {
 
 .logout-container {
   height: 25px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
 }
