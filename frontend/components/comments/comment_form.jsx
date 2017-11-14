@@ -6,7 +6,7 @@ class CommentForm extends React.Component {
     super(props);
     this.state = {
       body: "",
-      inFocus: false
+      buttonDisplayed: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,15 +24,17 @@ class CommentForm extends React.Component {
   }
 
   onFocus() {
-    this.setState({ inFocus: true });
+    this.setState({ buttonDisplayed: true });
   }
 
   onBlur() {
-    this.setState({ inFocus: false });
+    if (this.state.body === "") {
+      this.setState({ buttonDisplayed: false });
+    }
   }
 
   getClass() {
-    if (this.state.inFocus) {
+    if (this.state.buttonDisplayed) {
       return "comment-button";
     } else {
       return "comment-button hidden";
