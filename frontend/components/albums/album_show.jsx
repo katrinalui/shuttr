@@ -63,7 +63,7 @@ class AlbumShow extends React.Component {
     }
 
     return (
-      <div className="album-show">
+      <div className="photo-gallery-container">
         <div className="album-info" style={divStyle}>
           <div className="album-info-overlay">
             {editButton}
@@ -80,7 +80,7 @@ class AlbumShow extends React.Component {
             </div>
           </div>
         </div>
-        <div className="album-photos">
+        <div className="photo-gallery">
           { photoItems }
         </div>
       </div>

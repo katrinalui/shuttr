@@ -29,9 +29,9 @@ class UserHeader extends React.Component {
 
     return (
       <div className="user-header-container">
-        <div className="album-index-bar">
+        <div className="user-header">
           <div className="left-box" />
-            <div className="album-owner">
+            <div className="center-box">
               <Image publicId={user.img_url} cloudName="shuttr" >
                 <Transformation width="200" height="200" crop="thumb" />
               </Image>

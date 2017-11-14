@@ -1,54 +1,8 @@
-.user-header-container {
-  margin-top: 40px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.album-index-bar {
-  align-items: center;
-  margin-bottom: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  img {
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.album-owner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 33.33%;
-
-  h2 {
-    font-size: 22px;
-    color: gray;
-  }
-}
-
-.left-box {
-  width: 33.33%;
-}
-
-.right-box {
-  width: 33.33%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  font-size: 14px;
-}
-
 .albums-index-container {
   display: flex;
   justify-content: center;
   width: 100%;
+  position: relative;
 }
 
 .albums-index {
@@ -101,7 +55,7 @@
   flex-direction: column;
 }
 
-.album-photos {
+.photo-gallery {
   width: 100%;
   margin-top: 5px;
   position: relative;
@@ -139,7 +93,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-  .album-photos {
+  .photo-gallery {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
@@ -147,7 +101,7 @@
 }
 
 @media only screen and (min-width: 1250px) {
-  .album-photos {
+  .photo-gallery {
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
@@ -155,7 +109,7 @@
 }
 
 @media only screen and (min-width: 1700px) {
-  .album-photos {
+  .photo-gallery {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;

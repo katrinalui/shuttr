@@ -22,7 +22,9 @@ class AlbumIndex extends React.Component {
 
     if (loading) {
       return (
-        <LoadingSpinner />
+        <div className="albums-index-container">
+          <LoadingSpinner />
+        </div>
       );
     }
 

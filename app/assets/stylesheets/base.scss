@@ -34,7 +34,8 @@ body {
    animation: single4 2.5s infinite ease-in-out;
    position: absolute;
    top: 50%;
-  //  transform: translateX(-50%) translateY(-50%);
+   left: 50%;
+   transform: translateX(-50%) translateY(-50%);
 }
 
 @-webkit-keyframes single4 {

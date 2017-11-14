@@ -39,9 +39,9 @@ class TaggedPhotoIndex extends React.Component {
     ));
 
     return (
-      <div className="album-show">
+      <div className="photo-gallery-container">
         <h2>{ `Recently tagged — ${tag.name}` }</h2>
-        <div className="album-photos">
+        <div className="photo-gallery">
           { photoItems }
         </div>
       </div>

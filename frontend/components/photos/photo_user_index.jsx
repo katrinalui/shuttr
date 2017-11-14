@@ -33,7 +33,9 @@ class PhotoUserIndex extends React.Component {
 
     if (loading) {
       return (
-        <LoadingSpinner />
+        <div className="photo-gallery-container">
+          <LoadingSpinner />
+        </div>
       );
     }
 
@@ -42,7 +44,7 @@ class PhotoUserIndex extends React.Component {
     let photoIndex = <h2>Nothing to see here.</h2>;
     if (photos.length > 0) {
       photoIndex = (
-        <div className="album-photos">
+        <div className="photo-gallery">
           { photos.map(photo =>
           <PhotoItem key={photo.id} photo={photo}/>
           )}
@@ -52,7 +54,7 @@ class PhotoUserIndex extends React.Component {
 
     // Need to refactor class names for styling!
     return (
-      <div className="album-show">
+      <div className="photo-gallery-container">
         { photoIndex }
       </div>
     );
