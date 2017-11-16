@@ -20,7 +20,7 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment(this.state, this.props.match.params.photoId)
-      .then(this.setState({ body: "" }));
+      .then(this.setState({ body: "", buttonDisplayed: false }));
   }
 
   onFocus() {
