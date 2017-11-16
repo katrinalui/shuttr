@@ -15,6 +15,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+
+  &:hover {
+    background-color: #fafafa;
+  }
 }
 
 .uploaded-image {
