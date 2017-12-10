@@ -86,13 +86,15 @@ class PhotoForm extends React.Component {
       return <LoadingSpinner />;
     } else if (this.state.photo.img_url === '' && this.props.formType === 'new') {
       return (
-        <Dropzone
-          className="dropzone"
-          multiple={false}
-          accept="image/*"
-          onDrop={this.onImageDrop}>
-          <p>Drag and drop a photo or click to select a file to upload.</p>
-        </Dropzone>
+        <div className="dropzone-container">
+          <Dropzone
+            className="dropzone"
+            multiple={false}
+            accept="image/*"
+            onDrop={this.onImageDrop}>
+            <p>Drag and drop a photo or click to select a file to upload.</p>
+          </Dropzone>
+        </div>
       );
     } else {
       return (
