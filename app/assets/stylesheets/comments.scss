@@ -16,12 +16,25 @@
   display: flex;
   font-size: 14px;
   margin-bottom: 15px;
+
+  &:hover {
+    .delete-icon {
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+}
+
+.delete-icon {
+  display: none;
+  float: right;
 }
 
 .comment-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 
 .comment-header {
