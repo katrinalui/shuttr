@@ -11,12 +11,39 @@ class NavBar extends React.Component {
       modalIsOpen: false
     };
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+
+  componentWillUnmount() {
+    const main = document.querySelector('main');
+
+    main.style.paddingTop = 0;
+    window.removeEventListener('scroll', this.handleScroll, true);
   }
 
   toggleModal() {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen
     });
+  }
+
+  handleScroll() {
+    const main = document.querySelector('main');
+    const nav = document.querySelector('.dashboard-nav');
+    const topOfNav = nav.offsetTop;
+    window.nav = nav;
+
+    if (window.scrollY >= topOfNav) {
+      main.style.paddingTop = nav.offsetHeight + 'px';
+      nav.classList.add('fixed-nav');
+    } else {
+      main.style.paddingTop = 0;
+      nav.classList.remove('fixed-nav');
+    }
   }
 
   render() {
