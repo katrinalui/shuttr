@@ -19,9 +19,11 @@ class AlbumIndexContainer extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.match.params.userId !== newProps.match.params.userId) {
-      this.props.requestUserAlbums(newProps.match.params.userId);
-      this.props.requestUser(newProps.match.params.userId);
+    const { actions, match: { params } } = this.props,
+      { userId } = newProps.match.params;
+    if (params.userId !== userId) {
+      actions.requestUserAlbums(userId);
+      actions.requestUser(userId);
     }
   }
 
@@ -38,7 +40,7 @@ class AlbumIndexContainer extends React.Component {
         <AlbumIndexItem key={album.id} album={album}/>
       );
       albumIndex = (
-        <div className="albums-index">
+        <div className={`albums-index ${albums.length < 3 ? 'center' : ''}`}>
           { albumItems }
         </div>
       );

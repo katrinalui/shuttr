@@ -11,8 +11,12 @@
   flex-wrap: wrap;
   width: 100%;
 
+  &.center {
+    justify-content: center;
+  }
+
   a {
-    margin-left: 20px;
+    margin: 0px 10px;
   }
 }
 
@@ -21,6 +25,7 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+  padding-right: 15px;
 }
 
 .album-index-item {
@@ -92,19 +97,16 @@
 
 @media only screen and (max-width : 450px) {
   .albums-index-container {
-    width: 100%;
+    width: 320px;
   }
 
   .album-button-container {
     justify-content: center;
+    padding-right: 0px;
   }
 
-  .albums-index {
-    justify-content: center;
-
-    a {
-      margin: 0px;
-    }
+  .albums-index > a {
+    margin: 0px;
   }
 
   .album-index-item {
