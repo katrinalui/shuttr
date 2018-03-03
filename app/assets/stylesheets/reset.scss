@@ -39,6 +39,10 @@ button {
   appearance: none;
 }
 
+textarea {
+  resize: none;
+}
+
 a, button, input[type="submit"] {
   cursor: pointer;
 }
