@@ -30,14 +30,17 @@ class UserHeader extends React.Component {
     return (
       <div className="user-header-container">
         <div className="user-header">
-          <div className="left-box" />
-            <div className="center-box">
+          <div className="center-box">
+            <div className="avatar-wrap">
               <Image publicId={user.img_url} cloudName="shuttr" >
                 <Transformation width="200" height="200" crop="thumb" />
               </Image>
-              <h2>{ user.username }</h2>
             </div>
-          <div className="right-box" />
+            <div className="user-info">
+              <h2>{ user.username }</h2>
+              <span>{ user.bio }</span>
+            </div>
+          </div>
         </div>
 
         <SubNav userId={user.id} activeLink={this.pageName.bind(this)()}/>
