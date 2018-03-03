@@ -69,15 +69,14 @@
   }
 
   input[type="submit"] {
-    background-color: gray;
+    margin-right: 10px;
   }
 
   input[type="submit"]:hover {
     background-color: #a3a4a3;
   }
 
-  input[type="submit"], button {
-    color: white;
+  button {
     border-radius: 5px;
     font-size: 12px;
     padding: 6px 19px 6px 19px;

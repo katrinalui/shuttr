@@ -2,7 +2,6 @@ import React from 'react';
 import AlbumIndexItem from './album_index_item';
 import LoadingSpinner from '../loading_spinner';
 import { Image, Transformation } from 'cloudinary-react';
-import { Link } from 'react-router-dom';
 
 class AlbumIndex extends React.Component {
   componentWillMount() {
@@ -17,18 +16,12 @@ class AlbumIndex extends React.Component {
     }
   }
 
+  onNewAlbumClick() {
+    this.props.history.push('/albums/new');
+  }
+
   render() {
     const { albums, loading, user, currentUser } = this.props;
-
-    if (loading) {
-      return (
-        <div className="albums-index-container">
-          <LoadingSpinner />
-        </div>
-      );
-    }
-
-    if (!user) { return <div></div>; }
 
     let albumIndex = <h2>Nothing to see here.</h2>;
     if (albums.length > 0) {
@@ -42,14 +35,17 @@ class AlbumIndex extends React.Component {
       );
     }
 
-    // let newAlbumLink = <div></div>;
-    // if (currentUser.id === user.id) {
-    //   newAlbumLink = <Link to="/albums/new">New Album</Link>;
-    // }
-
     return (
       <div className="albums-index-container">
-        { albumIndex }
+        { currentUser.id === user.id
+          && <div className="album-button-container">
+              <button className="btn-grey"
+                      onClick={this.onNewAlbumClick.bind(this)}>
+                        New Album</button>
+             </div> }
+        { loading && !user
+          ? <LoadingSpinner />
+          : albumIndex }
       </div>
     );
   }

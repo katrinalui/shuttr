@@ -79,6 +79,20 @@ a:hover, button:hover {
   color: #a3a4a3;
 }
 
+.btn-grey {
+  background-color: gray;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 6px 19px 6px 19px;
+  width: fit-content;
+
+  &:hover {
+    background-color: #a3a4a3;
+    color: white;
+  }
+}
+
 @media only screen and (max-width : 450px) {
   * {
     -webkit-overflow-scrolling: touch;

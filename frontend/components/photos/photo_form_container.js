@@ -127,6 +127,7 @@ class PhotoForm extends React.Component {
               <div className="form-buttons">
                 <input
                   type="submit"
+                  className="btn-grey"
                   value={this.props.formType === 'new' ? "Upload" : "Edit" }
                 />
               <button className="cancel-button" onClick={this.cancelForm}>Cancel</button>

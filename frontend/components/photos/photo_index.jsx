@@ -6,6 +6,7 @@ import { ProtectedRoute } from '../../util/route_util';
 class PhotoIndex extends React.Component {
   componentWillMount() {
     this.props.requestAllPhotos();
+    document.body.scrollTop = 0;
   }
 
   render() {
