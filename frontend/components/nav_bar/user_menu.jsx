@@ -15,7 +15,6 @@ class UserMenu extends React.Component {
         <div className="user-menu-links">
           <Link to={`/users/${currentUser.id}/photos`}>Photos</Link>
           <Link to={`/users/${currentUser.id}/albums`}>Albums</Link>
-          <Link to={`/albums/new`}>New Album</Link>
           <div className="logout-container" onClick={logout}>
             <a>Logout</a>
           </div>
