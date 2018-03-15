@@ -59,7 +59,11 @@ class PhotoForm extends React.Component {
 
       if (res.body.secure_url !== '') {
         this.setState({
-          photo: { img_url: /Shuttr.*/.exec(res.body.secure_url)[0] },
+          photo: {
+            img_url: /Shuttr.*/.exec(res.body.secure_url)[0],
+            width: res.body.width,
+            height: res.body.height
+          },
           isUploading: false
         });
       }

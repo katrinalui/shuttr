@@ -1,9 +1,10 @@
 import React from 'react';
+import { Image, Transformation } from 'cloudinary-react';
+import { Link } from 'react-router-dom';
+import MasonryInfiniteScroller from 'react-masonry-infinite';
 import PhotoItem from './photo_item';
 import SubNav from '../users/subnav';
 import LoadingSpinner from '../loading_spinner';
-import { Image, Transformation } from 'cloudinary-react';
-import { Link } from 'react-router-dom';
 
 class PhotoUserIndex extends React.Component {
   componentWillMount() {
@@ -31,31 +32,25 @@ class PhotoUserIndex extends React.Component {
   render() {
     const { photos, loading, user } = this.props;
 
-    if (loading) {
-      return (
-        <div className="photo-gallery-container">
-          <LoadingSpinner />
-        </div>
-      );
-    }
-
-    if (!user) { return <div></div>; }
-
     let photoIndex = <h2>Nothing to see here.</h2>;
     if (photos.length > 0) {
       photoIndex = (
-        <div className="photo-gallery">
+        <MasonryInfiniteScroller
+          className="masonry"
+          sizes={[ { columns: 1, gutter: 10 },
+            { mq: '768px', columns: 2, gutter: 10 },
+            { mq: '1024px', columns: 3, gutter: 10 },
+            { mq: '1700px', columns: 4, gutter: 10 }]}>
           { photos.map(photo =>
-          <PhotoItem key={photo.id} photo={photo}/>
+            <PhotoItem key={photo.id} photo={photo} width={320}/>
           )}
-        </div>
+        </MasonryInfiniteScroller>
       );
     }
 
-    // Need to refactor class names for styling!
     return (
       <div className="photo-gallery-container">
-        { photoIndex }
+        { !loading && user ? photoIndex : <LoadingSpinner /> }
       </div>
     );
   }

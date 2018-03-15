@@ -13,6 +13,7 @@ class Api::PhotosController < ApplicationController
 
   def show
     @photo = Photo.includes(:owner, :albums, :comments, :tags).where(id: params[:id]).first
+
     if @photo
       render :show
     else
@@ -74,7 +75,7 @@ class Api::PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:img_url, :title, :description)
+    params.require(:photo).permit(:img_url, :title, :description, :width, :height)
   end
 
   def tag_params

@@ -1,23 +1,39 @@
 .photo-gallery-container {
-  width: 80%;
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  margin-top: 10px;
-  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-  h2 {
-    margin-bottom: 30px;
-  }
+.album-info-container {
+  width: 100%;
 }
 
 .album-info {
-  height: 240px;
+  height: 200px;
   width: 100%;
   color: white;
   background-size: cover;
   background-position: center;
   position: relative;
+  margin-bottom: 10px;
+}
+
+.album-title-desc {
+  text-align: center;
+
+  h1 {
+    font-size: 36px;
+    margin-top: 30px;
+  }
+
+  p {
+    font-style: italic;
+  }
+}
+
+.tagged-photos-container {
+  h2 {
+    margin: 30px 0px;
+  }
 }
 
 .album-info-overlay {
@@ -63,7 +79,7 @@
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   a {
@@ -84,32 +100,49 @@
       background: darken(white, 10%);
       transform: scaleX(0);
     }
-    
+
     &:hover:before {
       transform: scaleX(1);
     }
   }
 }
 
-@media only screen and (max-width : 450px) {
+@media only screen and (min-width : 768px) {
+  .album-info-container {
+    width: 605px;
+  }
+
   .photo-gallery-container {
     width: 100%;
-    margin-top: 0px;
+    margin: 10px 0 30px 0;
   }
 
   .album-info {
-    height: 200px;
+    height: 240px;
+    margin-bottom: 0px;
   }
 
   .album-title-desc {
     h1 {
-      font-size: 36px;
+      font-size: 40px;
     }
   }
 
   .album-text {
     h3 {
-      font-size: 14px;
+      font-size: 16px;
     }
+  }
+}
+
+@media only screen and (min-width : 1024px) {
+  .album-info-container {
+    width: 910px;
+  }
+}
+
+@media only screen and (min-width : 1360px) {
+  .album-info-container {
+    width: 1215px;
   }
 }

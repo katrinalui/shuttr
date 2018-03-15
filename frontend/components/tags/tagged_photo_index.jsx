@@ -1,8 +1,14 @@
 import React from 'react';
+import MasonryInfiniteScroller from 'react-masonry-infinite';
 import LoadingSpinner from '../loading_spinner';
 import PhotoItem from '../photos/photo_item';
 
 class TaggedPhotoIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderHeaderText = this.renderHeaderText.bind(this);
+  }
+
   componentWillMount() {
     this.props.requestTagPhotos(this.props.match.params.tagName);
     this.props.requestTag(this.props.match.params.tagName);
@@ -19,32 +25,36 @@ class TaggedPhotoIndex extends React.Component {
     }
   }
 
+  renderHeaderText() {
+    const { photos, tag } = this.props;
+    return photos.length === 0 ? `No photos tagged with "${tag.name}"` : `Recently tagged — ${tag.name}`;
+  }
+
   render() {
     const { tag, photos, loading } = this.props;
 
-    if (loading) {
-      return (
-        <LoadingSpinner />
-      );
-    }
-
-    if (!tag) { return <div></div>; }
-
-    if (photos.length === 0) {
-      return <h2>{`No photos tagged with ${tag.name}`}</h2>;
-    }
-
-    const photoItems = photos.map((photo, i) => (
-      <PhotoItem key={i} photo={photo} />
-    ));
+    const photoItems = (
+      <MasonryInfiniteScroller
+        className="masonry"
+        sizes={[ { columns: 1, gutter: 10 },
+          { mq: '768px', columns: 2, gutter: 5 },
+          { mq: '1024px', columns: 3, gutter: 5 },
+          { mq: '1700px', columns: 4, gutter: 5 }]}>
+        { photos.map(photo =>
+          <PhotoItem key={photo.id} photo={photo} width={300}/>
+        )}
+      </MasonryInfiniteScroller>
+    );
 
     return (
-      <div className="photo-gallery-container">
-        <h2>{ `Recently tagged — ${tag.name}` }</h2>
-        <div className="photo-gallery">
-          { photoItems }
+      loading || !tag
+      ? <LoadingSpinner />
+      : <div className="tagged-photos-container">
+          <h2>{ this.renderHeaderText() }</h2>
+          <div className="photo-gallery-container">
+            { photoItems }
+          </div>
         </div>
-      </div>
     );
   }
 }

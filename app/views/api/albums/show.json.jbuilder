@@ -8,6 +8,6 @@ end
 
 json.photos do
   json.array! @album.photos do |photo|
-    json.extract! photo, :id, :img_url
+    json.extract! photo, :id, :img_url, :width, :height
   end
 end
