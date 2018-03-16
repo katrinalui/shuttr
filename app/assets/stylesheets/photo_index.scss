@@ -10,37 +10,6 @@
   margin: 15px 0px 25px 0px;
 }
 
-.photos-home-index {
-  position: relative;
-  column-count: 1;
-  column-gap: 2em;
-  width: 90%;
-}
-
-@media only screen and (min-width: 800px) {
-  .photos-home-index {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-  }
-}
-
-@media only screen and (min-width: 1250px) {
-  .photos-home-index {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-  }
-}
-
-@media only screen and (min-width: 1700px) {
-  .photos-home-index {
-    -moz-column-count: 4;
-    -webkit-column-count: 4;
-    column-count: 4;
-  }
-}
-
 .photo-index-item {
   display: inline-block;
   margin: 0 0 1em;
