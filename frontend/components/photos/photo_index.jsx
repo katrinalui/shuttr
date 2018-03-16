@@ -27,7 +27,7 @@ class PhotoIndex extends React.Component {
                 { mq: '1024px', columns: 3, gutter: 30 },
                 { mq: '1700px', columns: 4, gutter: 30 }]}>
               { photos.map(photo =>
-                <PhotoIndexItem key={photo.id} photo={photo} width={300} />
+                <PhotoIndexItem key={photo.id} photo={photo} width={320} />
               ) }
             </MasonryInfiniteScroller>
           </div>
