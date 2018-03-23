@@ -87,6 +87,14 @@ class PhotoForm extends React.Component {
     this.props.history.goBack();
   }
 
+  renderUploadText() {
+    if (window.screen.availWidth < 475) {
+      return "Tap to select a photo to upload";
+    } else {
+      return "Drag and drop a photo or click to select a file to upload.";
+    }
+  }
+
   render() {
     if (this.state.isUploading) {
       return <LoadingSpinner />;
@@ -98,7 +106,7 @@ class PhotoForm extends React.Component {
             multiple={false}
             accept="image/*"
             onDrop={this.onImageDrop}>
-            <p>Drag and drop a photo or click to select a file to upload.</p>
+            <p>{ this.renderUploadText() }</p>
           </Dropzone>
         </div>
       );
